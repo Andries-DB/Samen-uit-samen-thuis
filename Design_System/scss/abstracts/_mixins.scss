@@ -1,0 +1,15 @@
+@use "../abstracts/functions" as f;
+
+
+@mixin linearGradient($degree, $from ,$to) {
+    background-image: linear-gradient($degree, $from, $to);
+};
+
+@mixin marginTRBL($top, $right , $bottom, $left) {
+    margin: f.pxtorem($top) f.pxtorem($right) f.pxtorem($bottom) f.pxtorem($left)
+}
+
+@mixin paddingTRBL($top, $right , $bottom, $left) {
+    padding: f.pxtorem($top) f.pxtorem($right) f.pxtorem($bottom) f.pxtorem($left)
+}
+

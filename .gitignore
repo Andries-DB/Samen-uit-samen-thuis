@@ -1,0 +1,14 @@
+#ignore generated files
+
+dist/*
+build/*
+node_modules/*
+.DS_Store
+Desktop.ini
+.Trashes
+.Trashes.Spotlight-V100
+._*
+Thumbs.db
+.vscode
+.cache
+

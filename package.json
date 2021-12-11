@@ -1,0 +1,33 @@
+{
+  "name": "spa_modules",
+  "version": "1.0.0",
+  "description": "De Parcel bundler bevat\r Een default setup heeft voor ESLint\r Een README.md document bevat met instructies hoe je je boilerplate gebruikt, een versienummer en een auteur\r Een CHANGELOG.md document bevat met een overzicht van verbeteringen en bumping van versienummers\r Een .gitignore bestand met de te negeren bestanden voor git\r Een assets folder heeft (met bijv. images)\r Een default favicon heeft\r Een stukje start code bevat die je meteen op weg zet om je applicatie te maken\r Een page router bevat, bijv. Navigo\r Een integratie van Firebase bevat. Zorg dat je project een configuratie bestand bevat (bijv. firebase.js) waar je met een aantal variabelen meteen op weg bent om Firebase Auth of Firestore te gebruiken.\r Een library folder met daarin helpers bevat. Bijv. een ElementsFactory helper, een LocalStorage helper, ...Misschien heb je doorheen de lessen code geschreven die je kan hergebruiken en die ook nuttig zijn voor andere projecten? Je kan je helpers vervolgens makkelijk importeren met import { ElementsFactory } from './src/lib. Misschien kan je nu al nieuwe helpers bedenken die je misschien helpen? (Denk aan werken met arrays, berekeningen maken, ...)\r Op het internet vind je tal van open source boilerplates voor veel voorkomende projecten. De HTML5 Boilerplate is bijvoorbeeld eentje die gebruikt wordt voor HTML projecten. Misschien kan je daar eens kijkje nemen en je laten inspireren door hun aanpak? Let wel, de HTML5 Boilerplate is géén Single Page Application boilerplate.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/html/index.html",
+    "build": "parcel build src/html/index.html --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andries-DB/spa_modules.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andries-DB/spa_modules/issues"
+  },
+  "homepage": "https://github.com/Andries-DB/spa_modules#readme",
+  "dependencies": {
+    "firebase": "^9.6.0",
+    "navigo": "^8.11.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.44.0"
+  }
+}
