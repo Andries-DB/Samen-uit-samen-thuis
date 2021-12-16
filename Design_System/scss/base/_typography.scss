@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+@use 'sass:map';
+
+h1 {
+  font-weight: v.$font-weight-bold;
+  font-size: f.pxtorem(50);
+  color: map-get($map: v.$colors , $key: blue );
+}
+
+h2 {
+  font-weight: v.$font-weight_bold;
+  font-size: f.pxtorem(25);
+  color: map-get($map: v.$colors , $key: blue );
+}
+
+h3 {
+  font-size: f.pxtorem(17);
+  font-weight: v.$font-weight_bold;
+  color: map-get($map: v.$colors , $key: blue );
+}
+
+h4{
+  font-weight: v.$font-weight_light;
+  font-size: f.pxtorem(15);
+  color: map-get($map: v.$colors , $key: blue );
+}
+h5 {
+  font-weight: v.$font-weight_light;
+  font-size: f.pxtorem(13);
+  color: map-get($map: v.$colors , $key: blue );
+}
+h6 {
+  font-weight: v.$font-weight_light;
+  font-size: f.pxtorem(10);
+  color: map-get($map: v.$colors , $key: blue );
+}
+blockquote {
+  @include m.marginTRBL(10,10,10,10);
+  @include m.paddingTRBL(36,36,36,36);
+}

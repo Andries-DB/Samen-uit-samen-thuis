@@ -341,45 +341,108 @@ template {
 body {
   font-family: "Hind Siliguri", sans-serif;
   background-color: #F2F1FF;
-  margin-right: 9.375rem;
+  padding-left: 0.9375rem;
+}
+
+hr {
+  background-color: #6C63FF;
+  height: 5px;
 }
 
 h1 {
   font-weight: 800;
-  font-size: 50px;
+  font-size: 3.125rem;
   color: #6C63FF;
 }
 
 h2 {
   font-weight: 800;
-  font-size: 25px;
+  font-size: 1.5625rem;
   color: #6C63FF;
 }
 
 h3 {
-  font-size: 17px;
-  font-weight: 300;
+  font-size: 1.0625rem;
+  font-weight: 800;
   color: #6C63FF;
 }
 
 h4 {
   font-weight: 300;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #6C63FF;
 }
 
 h5 {
   font-weight: 300;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #6C63FF;
 }
 
-button {
-  font-weight: 800;
+h6 {
+  font-weight: 300;
+  font-size: 0.625rem;
+  color: #6C63FF;
 }
 
-hr {
-  width: 108%;
+blockquote {
+  margin: 0.625rem 0.625rem 0.625rem 0.625rem;
+  padding: 2.25rem 2.25rem 2.25rem 2.25rem;
+}
+
+button {
+  font-weight: 300;
+  background-color: #6C63FF;
+  color: #FFF;
+  border: none;
+  padding: 0.625rem 1.5625rem 0.625rem 1.5625rem;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: initial;
+}
+button:disabled:hover {
+  background-color: #6C63FF;
+  color: #FFF;
+}
+button:hover {
+  background-color: #F2F1FF;
+  color: #6C63FF;
+}
+button.cancel {
+  background-color: #FF0000;
+}
+button.cancel:hover {
+  background-color: #F2F1FF;
+  color: #FF0000;
+}
+button.small {
+  font-size: 0.8125rem;
+  height: 100%;
+}
+button.secondary-button {
+  background-color: #FFF;
+  color: #000;
+  border-radius: 1.25rem;
+}
+button.secondary-button:hover {
+  background-color: #FFF;
+  color: #000;
+}
+button.tertiary-button {
+  background-color: transparent;
+  color: #6C63FF;
+  text-decoration: underline;
+}
+button.tertiary-button:disabled {
+  opacity: 0.4;
+  cursor: initial;
+}
+button.tertiary-button:disabled:hover {
+  background: transparent;
+  color: #6C63FF;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=main.css.map */

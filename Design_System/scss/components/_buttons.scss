@@ -1,6 +1,63 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/functions" as f;
 @use "../abstracts/extends.scss" as e;
-@use "../abstracts/mixins" as mix;
+@use "../abstracts/mixins" as m;
 @use "sass:map";
 
+button {
+  font-weight: v.$font-weight_light;
+  background-color: map-get($map: v.$colors, $key: blue );
+  color: map-get($map: v.$colors , $key: white );
+  border:none;
+  @include m.paddingTRBL(10,25,10,25);
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.4;
+    cursor: initial;
+    &:hover {
+      background-color: map-get($map: v.$colors, $key: blue );
+      color: map-get($map: v.$colors , $key: white );
+    }
+  }
+  &:hover{
+    background-color: map-get($map: v.$colors, $key: darkwhite );
+    color: map-get($map: v.$colors , $key: blue );
+  }
+  &.cancel {
+    background-color: map-get($map: v.$colors , $key: red );
+    &:hover {
+      background-color: map-get($map: v.$colors , $key: darkwhite );
+      color: map-get($map: v.$colors , $key: red );
+    }
+  }
+  &.small {
+    font-size: f.pxtorem(13);
+    height: 100%;
+  }
+
+  &.secondary-button{
+    background-color: map-get($map: v.$colors, $key: white );
+    color: map-get($map: v.$colors , $key: black );
+    border-radius: f.pxtorem(20);
+    &:hover{
+      background-color: map-get($map: v.$colors, $key: white );
+      color: map-get($map: v.$colors , $key: black ); 
+    }
+  }
+
+  &.tertiary-button {
+    background-color: transparent;
+    color: map-get($map: v.$colors, $key: blue );
+    text-decoration: underline;
+    &:disabled {
+      opacity: 0.4;
+      cursor: initial;
+      &:hover {
+       background: transparent;
+       color: map-get($map: v.$colors, $key: blue );
+       text-decoration: none; 
+      }
+    }
+  }
+  
+}
