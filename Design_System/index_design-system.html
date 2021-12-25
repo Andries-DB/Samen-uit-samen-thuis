@@ -8,7 +8,20 @@
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-  <h2>Typography</h2>
+
+  <header>
+    <h1 class="fake-logo">Fake Logo</h1>
+    <nav>
+      <a href="#typography">Typography</a>
+      <a href="#colors">Colors</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#form">Forms</a>
+      <a href="#card">Card</a>
+      <a href="#layout">Layout</a>
+    </nav>
+  </header>
+
+  <h2 id="typography">Typography</h2>
   <h1>Design System</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris turpis dui, posuere ac sodales at, molestie vel urna. Cras sit amet nisi congue, tempor ligula consequat, sagittis mauris. Phasellus bibendum, arcu at tincidunt congue, tortor elit euismod nisi, a mattis ipsum lacus et orci. Suspendisse convallis, leo quis tincidunt sodales, nisl nibh molestie lectus, eget tincidunt est magna eu arcu. Mauris pretium a turpis et pretium. Sed pretium tempus feugiat. Proin viverra consequat dignissim. Cras pellentesque at augue eu aliquam. Vivamus facilisis lacus a magna posuere, sit amet commodo dui fringilla. Donec vitae justo eu urna elementum porttitor. Suspendisse potenti. Etiam vel semper quam. Maecenas maximus venenatis augue sed suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
@@ -26,26 +39,102 @@
   
   <hr>
 
-  <h2>Buttons</h2>
-  <h3>Primary Button</h3>
-  
-  <button>Primary button</button>
-  <button>Primary button with a lot of text</button>
-  <button disabled>Disabled</button>
-  <button class="cancel">Cancel</button>
-  <button class="small">Small</button>
+  <h2 id="colors">Colors</h2>
 
-  <h3>Secondary Button</h3>
-  <button class="secondary-button">Secondary Button</button>
-  <button class="secondary-button">Secondary Button with a lot of text</button>
-  <button class= "secondary-button" disabled>Disabled</button>
+  <div class="color-grid">
+    <div class="color color-white" ></div>
+    <div class="color color-black" ></div>
+    <div class="color color-blue" ></div>
+    <div class="color color-purple" ></div>
+    <div class="color color-darkwhite" ></div>
+    <div class="color color-gray" ></div>
+    <div class="color color-red" ></div>
 
-  <h3>Tertiary Button</h3>
-  <button class="tertiary-button">Tertiary Button</button>
-  <button class="tertiary-button">Tertiary Button with a lot of text</button>
-  <button class= "tertiary-button" disabled>Disabled</button>
+  </div>
 
   <hr>
+
+  <h2 id="buttons">Buttons</h2>
+  <h3>Primary Button</h3>
+  <div class="button">
+    <button class="button--primary">Primary button</button>
+    <button class="button--primary__lotOfText">Primary button with a lot of text</button>
+    <button class="button--primary__disabled" disabled>Disabled</button>
+    <button class="button--primary__cancel">Cancel</button>
+    <button class="button--primary__small">Small</button>
+  
+    <h3>Secondary Button</h3>
+    <button class="button--secondary">Secondary Button</button>
+    <button class="button--secondary__lotOfText">Secondary Button with a lot of text</button>
+    <button class= "button--secondary__disabled" disabled>Disabled</button>
+  
+    <h3>Tertiary Button</h3>
+    <button class="button--tertiary">Tertiary Button</button>
+    <button class="button--tertiary__lotOfText">Tertiary Button with a lot of text</button>
+    <button class= "button--tertiary__disabled" disabled>Disabled</button>
+  
+  </div>
+
+  <hr>
+    <h2 id="form">Forms</h2>
+
+  <form action="#">
+    <div class="flex">
+      <p>
+        <label for="email">Email</label><br><input  placeholder="E-mail" type="email" id="email">
+      </p>
+      <p>
+        <label for="password">Number</label><br><input placeholder="password" type="password" id="password">
+      </p>
+    </div>
+  </form>
+
+  <hr>
+
+  <h2 id="card">Card</h2>
+
+    <div class="card">
+     <div class="card__img">
+       <img class="card__img--img "src="./assets/Images/cardimg.jpg" alt="">
+     </div>
+     <div class="card__info">
+      <h2 class="card__info--title">Concert Justin Bieber</h2>
+      <h5 class="card__info--description">made by: You <br> 10 DEC 2021</h5>
+      <button class="button--tertiary">details</button>
+     </div>
+    </div>
+
+    <hr>
+
+    <h2 id="layout">Layout</h2>
+
+    <h3>Split</h3>
+
+    <div class="split">
+      <aside>
+        <p>
+          This is a text that represents a sidebar.
+        </p>
+      </aside>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque repellat eos numquam possimus hic quam
+        voluptatum aspernatur porro. Recusandae culpa autem quaerat dolores et inventore reprehenderit laudantium.
+        Quasi, hic aperiam?</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <h1 class="fake-logo">Fake Logo</h1>
+      <nav>
+        <a href="#typography">Typography</a>
+        <a href="#colors">Colors</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#form">Forms</a>
+        <a href="#card">Card</a>
+        <a href="#layout">Layout</a>
+      </nav>
+    <p>&copy; 2020 My fake company</p>
+  </footer>
 
 </body>
 </html>

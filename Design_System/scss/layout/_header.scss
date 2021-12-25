@@ -5,3 +5,11 @@
 @use "../abstracts/mediaqueries" as med;;
 @use "sass:map";
 
+header {
+  display: flex;
+  justify-content: space-between;
+
+  nav {
+    @include mix.paddingTRBL(40,20,0,0)
+  }
+}

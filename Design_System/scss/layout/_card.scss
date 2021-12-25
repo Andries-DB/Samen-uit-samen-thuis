@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/functions" as f;
+@use "../abstracts/extends.scss" as e;
+@use "../abstracts/mediaqueries" as med;;
+@use "sass:map";
+
+.card {
+  display: flex;
+  background-color: map-get($map: v.$colors, $key: white );
+  height: 100%;
+  width: 32%;
+  justify-content: center;
+  border: none;
+  border-radius: f.pxtorem(30);
+  @include m.paddingTRBL(15,0,15,0);
+  cursor: pointer;
+  &__img {
+    justify-content: center;
+    text-align: center;
+    &--img{
+      height: f.pxtorem(200);
+      border-radius: f.pxtorem(30);
+    }
+  }
+  &__info {
+    @include m.paddingTRBL(0,0,0,20);
+    text-align: left;
+  }
+}
