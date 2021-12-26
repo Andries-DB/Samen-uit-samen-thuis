@@ -1,5 +1,6 @@
-/* eslint-disable no-restricted-globals */
-
+/**
+ * My Service worker
+ */
 // Set the debug state
 const DEBUG = true;
 

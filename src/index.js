@@ -1,18 +1,27 @@
 import './scss/main.scss';
 import Router from './Router';
-import InvalidStringException from './lib/Exceptions/InvalidStringException';
+import { App } from './app';
+import { LoginComp, RegisterComp } from './Components/index';
 
-const checkIfRightType = (value) => {
+
+ /*const checkIfRightType = (value) => {
   if (!isNaN(value)) throw new InvalidStringException(value);
-};
+}; */
+
 const initApp = () => {
+  const appContainer = document.getElementById('appContainer');
+  const app = new App(appContainer);
+
+  app.addComponent(new LoginComp());
+  app.addComponent(new RegisterComp());
+
   Router.getRouter().on('/test', () => {
-    console.log('testing');
+    console.log('testing correct');
   });
 
-  if ('serviceWorker' in navigator) {
+ /* if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
-  }
+  }*/
 };
 
-window.addEventListener('click', initApp);
+window.addEventListener('load', initApp);

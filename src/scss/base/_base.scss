@@ -6,7 +6,9 @@
 body{
     font-family: v.$font;
     background-color: map-get($map: v.$colors , $key: darkwhite );
-    padding-left: f.pxtorem(15);
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 hr {

@@ -1,0 +1,57 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as v;
+@use '../abstracts/mixins' as m;
+
+//Extends for primary buttons
+%primary-button {
+    font-weight: v.$font-weight_light;
+    background-color: map-get($map: v.$colors, $key: blue );
+    color: map-get($map: v.$colors , $key: white );
+    border:none;
+    @include m.paddingTRBL(10,25,10,25);
+    @include m.marginTRBL(10,0,0,0);
+    cursor: pointer;
+}
+%primary-buton-hover {
+    background-color: map-get($map: v.$colors, $key: darkwhite );
+    color: map-get($map: v.$colors , $key: blue );
+}
+
+//Extends for secondary buttons
+%secondary-button {
+    background-color: map-get($map: v.$colors, $key: white );
+    color: map-get($map: v.$colors , $key: black );
+    border-radius: f.pxtorem(20);
+    border: none;
+    font-weight: v.$font-weight_light;
+    @include m.paddingTRBL(10,25,10,25);
+    cursor: pointer;
+}
+
+%secondary-button-hover {
+    background-color: map-get($map: v.$colors, $key: white );
+    color: map-get($map: v.$colors , $key: black ); 
+}
+//Extends for tertiary buttons
+%tertiary-button {
+    background-color: transparent;
+    color: map-get($map: v.$colors, $key: blue );
+    text-decoration: underline;
+    border: none;
+    font-weight: v.$font-weight_light;
+    @include m.paddingTRBL(10,25,10,0);
+    cursor: pointer;
+}
+
+%tertiary-button-hover {
+    background: transparent;
+    color: map-get($map: v.$colors, $key: blue );
+    text-decoration: none; 
+}
+
+
+//EXTRAS for buttons
+%disabled {
+    opacity: 0.4;
+    cursor: initial;
+}

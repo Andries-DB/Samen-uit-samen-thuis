@@ -16,6 +16,7 @@ module.exports = {
     'no-useless-constructor': 'off',
     'no-param-reassign': 0,
     'no-restricted-globals': ['error', 'event', 'fdescribe'],
+    esModuleInterop: true,
 
   },
 };

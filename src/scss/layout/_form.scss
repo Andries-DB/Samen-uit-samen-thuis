@@ -11,6 +11,7 @@ label {
 }
 input {
   @include m.paddingTRBL(5,10,5,10);
+  @include m.marginTRBL(10,0,0,0);
   border: none;
   border-radius: f.pxtorem(10);
   background-color: map-get($map: v.$colors, $key: white );
@@ -19,3 +20,4 @@ input {
     color: map-get($map: v.$colors, $key: blue );
   }
 }
+

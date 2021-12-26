@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/gdmgent-mobdev1/werkstuk-ek1-samen-uit-samen-thuis-Andries-DB"
   },
+  "staticFiles":{
+    "staticPath": "public"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,15 +23,13 @@
   },
   "homepage": "https://github.com/gdmgent-mobdev1/werkstuk-ek1-samen-uit-samen-thuis-Andries-DB#readme",
   "dependencies": {
-    "firebase": "^9.6.0",
-    "navigo": "^8.11.1",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
+    "firebase": "^9.6.0",
+    "navigo": "^8.11.1",
     "parcel-bundler": "^1.12.5",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "sass": "^1.44.0"
-  },
-  "devDependencies": {
-    
   }
 }
