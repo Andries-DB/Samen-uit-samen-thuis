@@ -11,12 +11,12 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // If u want to delete console.log easily, u need to put 'warn' instead 'off'
+    // If u want to delete console.log easily, u need to put 'warn' instead of 'off'
     'no-console': 'warn',
     'no-useless-constructor': 'off',
     'no-param-reassign': 0,
+    'no-unused-vars': 'off',
+    'class-methods-use-this': 0,
     'no-restricted-globals': ['error', 'event', 'fdescribe'],
-    esModuleInterop: true,
-
   },
 };

@@ -4,6 +4,7 @@
 
 import Component from '../lib/Component';
 import Elements from '../lib/Elements';
+import { auth, createUserWithEmailAndPassword } from '../lib/firebase';
 
 class RegisterComp extends Component {
   constructor() {
@@ -11,22 +12,39 @@ class RegisterComp extends Component {
       name: 'register',
       routerPath: '/register',
       model: {
-        inputEm: "text",
-        inputWw: "password",
-        placeholderEm: "email",
-        placeholderWw: "password",
-        
-      }
+        inputEm: 'text',
+        inputWw: 'password',
+        placeholderEm: 'email',
+        placeholderWw: 'password',
+
+      },
     });
+  }
+
+  // Functions
+  registerUser() {
+    const registerEmail = document.getElementById('register__email').value;
+    const registerPassw = document.getElementById('register__password').value;
+
+    createUserWithEmailAndPassword(auth, registerEmail, registerPassw)
+      .then((userCredential) => {
+        // Signed in
+        const { user } = userCredential;
+        location.replace('/dashboard');
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(`An error has occurred, the error is ${errorMessage}!`);
+      });
   }
 
   render() {
     // destructure model
-    const { inputEm} = this.model;
-    const {inputWw} = this.model;
-    
-    const {placeholderEm} = this.model;
-    const {placeholderWw} = this.model;
+    const { inputEm } = this.model;
+    const { inputWw } = this.model;
+
+    const { placeholderEm } = this.model;
+    const { placeholderWw } = this.model;
 
     // create a home container
     const registerContainer = document.createElement('div');
@@ -34,19 +52,19 @@ class RegisterComp extends Component {
     // create a header
     registerContainer.appendChild(
       Elements.createHeader({
-        textContent: "REGISTER",
+        textContent: 'REGISTER',
       }),
     );
-    registerContainer.appendChild(    
+    registerContainer.appendChild(
       Elements.createInput({
-        id: "register__email",
+        id: 'register__email',
         type: inputEm,
         placeholder: placeholderEm,
-    }),
+      }),
     );
-    registerContainer.appendChild(    
+    registerContainer.appendChild(
       Elements.createInput({
-        id: "register__password",
+        id: 'register__password',
         type: inputWw,
         placeholder: placeholderWw,
       }),
@@ -55,17 +73,13 @@ class RegisterComp extends Component {
       Elements.createBr({}),
     );
     registerContainer.appendChild(
-      Elements.createBr({}),
-    );
-    registerContainer.appendChild(
-      Elements.createBr({}),
-    );
-    registerContainer.appendChild(
-      Elements.createLink({
-        id: "button--primary register",
-        textContent: "REGISTER",
-        href: '/dashboard',
-      })
+      Elements.createButton({
+        id: 'button--primary register',
+        textContent: 'REGISTER',
+        onClick: () => {
+          this.registerUser();
+        },
+      }),
     );
     registerContainer.appendChild(
       Elements.createBr({}),
@@ -74,14 +88,16 @@ class RegisterComp extends Component {
       Elements.createBr({}),
     );
     registerContainer.appendChild(
-      Elements.createLink({
-        id: "button--tertiary MakeAnAccount",
-        textContent: "Already have an account?",
-        href: '/',
-      })
-    )
+      Elements.createButton({
+        id: 'button--tertiary AlreadyAnAccount',
+        textContent: 'Already have an account?',
+        onClick: () => {
+          location.replace('/');
+        },
+      }),
+    );
     return registerContainer;
   }
 }
 
-export default RegisterComp ;
+export default RegisterComp;

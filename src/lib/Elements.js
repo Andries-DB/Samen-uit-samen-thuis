@@ -3,16 +3,16 @@
  */
 const Elements = {
 
-  createBr({}) {
+  createBr() {
     const br = document.createElement('br');
     return br;
   },
-  createP({textContent = ' '}) {
+  createP({ textContent = ' ' }) {
     const p = document.createElement('p');
     p.textContent = textContent;
     return p;
   },
-  createButton({ id , textContent = '', onClick = null}) {
+  createButton({ id, textContent = '', onClick = null }) {
     const button = document.createElement('button');
     button.className = id;
     button.textContent = textContent;
@@ -27,16 +27,19 @@ const Elements = {
     return header;
   },
 
-  createLink({ id , href, textContent, target = '_self' }) {
+  createLink({
+    id, href, textContent, target = '_self', onClick = null,
+  }) {
     const a = document.createElement('a');
     a.className = id;
     if (href) a.href = href;
     a.textContent = textContent;
     a.target = target;
+    if (onClick) a.addEventListener('click', () => { onClick(); });
     return a;
   },
 
-  createInput({id, type, placeholder}) {
+  createInput({ id, type, placeholder }) {
     const input = document.createElement('input');
     input.id = id;
     input.type = type;

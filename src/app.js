@@ -51,4 +51,4 @@ class App {
     }
   }
 }
-export { App };
+export default App;
