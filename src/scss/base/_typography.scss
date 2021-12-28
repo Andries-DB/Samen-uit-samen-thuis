@@ -30,6 +30,7 @@ h5 {
   font-weight: v.$font-weight_light;
   font-size: f.pxtorem(13);
   color: map-get($map: v.$colors , $key: purple );
+  text-align: right;
 }
 h6 {
   font-weight: v.$font-weight_light;

@@ -4,6 +4,10 @@
 @use "../abstracts/mixins" as m;
 @use "sass:map";
 
+button {
+  @include m.paddingTRBL(10,25,10,25);
+  @include m.marginTRBL(10,10,0,0);
+}
 .button {
   &--primary {
     @extend %primary-button;

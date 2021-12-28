@@ -30,7 +30,8 @@ class RegisterComp extends Component {
       .then((userCredential) => {
         // Signed in
         const { user } = userCredential;
-        location.replace('/dashboard');
+        localStorage.setItem('email', document.getElementById('register__email').value);
+        location.replace('/accountinformation');
       })
       .catch((error) => {
         const errorMessage = error.message;

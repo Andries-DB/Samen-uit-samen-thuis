@@ -7,6 +7,11 @@ const Elements = {
     const br = document.createElement('br');
     return br;
   },
+  creatediv(id) {
+    const div = document.createElement('div');
+    div.className = id;
+    return div;
+  },
   createP({ textContent = ' ' }) {
     const p = document.createElement('p');
     p.textContent = textContent;
@@ -39,12 +44,23 @@ const Elements = {
     return a;
   },
 
-  createInput({ id, type, placeholder }) {
+  createInput({
+    id, type, placeholder, required = false, value,
+  }) {
     const input = document.createElement('input');
     input.id = id;
     input.type = type;
     input.placeholder = placeholder;
+    input.required = required;
+    if (value) input.value = value;
     return input;
+  },
+
+  createLabel({ textContent, inputType }) {
+    const label = document.createElement('label');
+    label.for = inputType;
+    label.textContent = textContent;
+    return label;
   },
 
   createList({ items = [], ordered = false }) {

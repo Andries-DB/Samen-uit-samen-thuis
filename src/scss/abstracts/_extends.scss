@@ -3,13 +3,13 @@
 @use '../abstracts/mixins' as m;
 
 //Extends for primary buttons
+
 %primary-button {
     font-weight: v.$font-weight_light;
     background-color: map-get($map: v.$colors, $key: blue );
     color: map-get($map: v.$colors , $key: white );
     border:none;
-    @include m.paddingTRBL(10,25,10,25);
-    @include m.marginTRBL(10,0,0,0);
+
     cursor: pointer;
 }
 %primary-buton-hover {
@@ -24,7 +24,7 @@
     border-radius: f.pxtorem(20);
     border: none;
     font-weight: v.$font-weight_light;
-    @include m.paddingTRBL(10,25,10,25);
+
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
     text-decoration: underline;
     border: none;
     font-weight: v.$font-weight_light;
-    @include m.paddingTRBL(10,25,10,0);
+
     cursor: pointer;
 }
 

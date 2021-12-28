@@ -9,7 +9,8 @@ header {
   display: flex;
   justify-content: space-between;
 
-  nav {
-    @include mix.paddingTRBL(40,20,0,0)
+
+  a {
+    @include mix.marginTRBL(20,20,0,0);
   }
 }

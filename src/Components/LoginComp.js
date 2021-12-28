@@ -87,7 +87,6 @@ class LoginComp extends Component {
         type: inputEm,
         placeholder: placeholderEm,
       }),
-
     );
     loginContainer.appendChild(
       Elements.createInput({
