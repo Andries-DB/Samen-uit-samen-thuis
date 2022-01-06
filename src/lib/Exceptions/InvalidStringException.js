@@ -2,7 +2,7 @@
  * Invalid string
  */
 
-import Exception from './Exception';
+import Exception from './Exception.js';
 
 export default class InvalidStringException extends Exception {
   constructor(givenString = '') {

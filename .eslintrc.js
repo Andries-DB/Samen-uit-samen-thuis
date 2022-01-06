@@ -11,7 +11,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // If u want to delete console.log easily, u need to put 'warn' instead of 'off'
+    // If u want to delete console.log & alert easily, u need to put 'warn' instead of 'off'
     'no-console': 'warn',
     'no-useless-constructor': 'off',
     'no-param-reassign': 0,

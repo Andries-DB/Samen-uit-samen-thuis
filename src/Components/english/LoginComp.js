@@ -5,9 +5,9 @@
 import {
   auth, signInWithEmailAndPassword, provider,
   signInWithPopup, GoogleAuthProvider,
-} from '../lib/firebase';
-import Component from '../lib/Component';
-import Elements from '../lib/Elements';
+} from '../../lib/firebase.js';
+import Component from '../../lib/Component.js';
+import Elements from '../../lib/Elements.js';
 
 class LoginComp extends Component {
   constructor() {
@@ -24,7 +24,7 @@ class LoginComp extends Component {
     });
   }
 
-  // Functie's
+  // Functions
   signin() {
     const signinEmail = document.getElementById('login__email').value;
     const signinPassw = document.getElementById('login__password').value;
@@ -32,7 +32,8 @@ class LoginComp extends Component {
     signInWithEmailAndPassword(auth, signinEmail, signinPassw)
       .then((userCredential) => {
         // Signed in
-        location.replace('/dashboard');
+        location.replace('/dashboard%ENG');
+        localStorage.setItem('emaiLoggedInUser' , signinEmail);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -48,7 +49,7 @@ class LoginComp extends Component {
         const token = credential.accessToken;
         // The signed-in user info.
         const { user } = result;
-
+        location.replace('/dashboard%ENG');
         // ...
       }).catch((error) => {
         // Handle Errors here.

@@ -499,16 +499,36 @@ input::placeholder {
   color: #6C63FF;
 }
 
-.card {
+/*.card {
   display: flex;
-  background-color: #FFF;
+  background-color: map-get($map: v.$colors, $key: white );
   height: 100%;
   width: 32%;
   justify-content: center;
   border: none;
-  border-radius: 1.875rem;
-  padding: 0.9375rem 0rem 0.9375rem 0rem;
+  border-radius: f.pxtorem(30);
+  @include m.paddingTRBL(15,0,15,0);
   cursor: pointer;
+  &__img {
+    justify-content: center;
+    text-align: center;
+    &--img{
+      height: f.pxtorem(200);
+      border-radius: f.pxtorem(30);
+    }
+  }
+  &__info {
+    @include m.paddingTRBL(0,0,0,20);
+    text-align: left;
+  }
+}*/
+.card {
+  display: flex;
+  background-color: #FFF;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.9375rem;
+  border-radius: 1.875rem;
+  height: 100%;
+  width: 50%;
 }
 .card__img {
   justify-content: center;

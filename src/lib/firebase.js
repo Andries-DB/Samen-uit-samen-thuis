@@ -5,11 +5,12 @@ import 'regenerator-runtime/runtime';
 import firebase from 'firebase/compat/app';
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  signInWithPopup, GoogleAuthProvider, signOut,
+  signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, onSnapshot, deleteDoc,
+  getFirestore, doc, setDoc, onSnapshot, deleteDoc, getDocs, collection, getDownloadURL
 } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,12 +25,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
+// Initialize Authentication & provider so we can log in with google & email - password / Register with google & email
 const auth = getAuth();
 const provider = new GoogleAuthProvider(app);
 
-const db = getFirestore();
+// Initialize database so we can read&write documents in firestore
+const db = getFirestore(app);
+
+// Initialize storage so we can read&write documents in storage
+const storage = getStorage(app);
 
 export {
   auth, signInWithEmailAndPassword, signInWithPopup, provider, GoogleAuthProvider,
-  signOut, createUserWithEmailAndPassword, db, doc, setDoc, onSnapshot, deleteDoc,
+  signOut, createUserWithEmailAndPassword, db, doc, setDoc, onSnapshot,
+  deleteDoc, onAuthStateChanged, getDocs, collection, storage, ref, uploadBytes, getDownloadURL,
 };

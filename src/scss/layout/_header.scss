@@ -8,6 +8,7 @@
 header {
   display: flex;
   justify-content: space-between;
+  @include mix.paddingTRBL(0,0,0,20);
 
 
   a {

@@ -1,18 +1,17 @@
 /**
  * The Profile Component
  */
-
-import Component from '../lib/Component';
-import Elements from '../lib/Elements';
+ import Component from '../../lib/Component.js';
+ import Elements from '../../lib/Elements.js';
 import {
-  doc, onSnapshot, db, setDoc,
-} from '../lib/firebase';
+  doc, onSnapshot, db, setDoc, deleteDoc
+} from '../../lib/firebase.js';
 
-class ProfileComp extends Component {
+class DUProfileComp extends Component {
   constructor() {
     super({
-      name: 'Profile Information',
-      routerPath: '/profile',
+      name: 'Instellingen',
+      routerPath: '/settings%DU',
       model: {
       },
     });
@@ -33,11 +32,19 @@ class ProfileComp extends Component {
       phoneNumb,
     });
   }
+  async deleteDocument() {
+    
+    const email = localStorage.getItem('emaiLoggedInUser');
+
+    await deleteDoc(doc(db, 'usersInfo', email));
+    location.replace('/');
+  }
 
   render() {
-    // create a home container
+    // create a home container & variables
     const profileContainer = document.createElement('div');
     const email = localStorage.getItem('email');
+    
     onSnapshot(doc(db, 'usersInfo', email), (docu) => {
       profileContainer.appendChild(
         Elements.createHeader({
@@ -45,12 +52,10 @@ class ProfileComp extends Component {
           textContent: this.name,
         }),
       );
-      profileContainer.appendChild(
-        Elements.createBr(),
-      );
+
       profileContainer.appendChild(
         Elements.createLabel({
-          textContent: 'Firstname*',
+          textContent: 'Voornaam*',
           inputType: 'info__firstName',
         }),
       );
@@ -58,7 +63,7 @@ class ProfileComp extends Component {
         Elements.createInput({
           id: 'info__firstName',
           type: 'text',
-          placeholder: 'firstname',
+          placeholder: 'Voornaam',
           required: true,
           value: docu.data().firstName,
         }),
@@ -68,7 +73,7 @@ class ProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createLabel({
-          textContent: 'Lastname*',
+          textContent: 'Achternaam*',
           inputType: 'info__lastName',
         }),
       );
@@ -76,7 +81,7 @@ class ProfileComp extends Component {
         Elements.createInput({
           id: 'info__lastName',
           type: 'text',
-          placeholder: 'lastname',
+          placeholder: 'Achternaam',
           required: true,
           value: docu.data().lastName,
         }),
@@ -86,7 +91,7 @@ class ProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createLabel({
-          textContent: 'Username*',
+          textContent: 'Gebruikersnaam*',
           inputType: 'info__userName',
         }),
       );
@@ -94,7 +99,7 @@ class ProfileComp extends Component {
         Elements.createInput({
           id: 'info__userName',
           type: 'text',
-          placeholder: 'username',
+          placeholder: 'Gebruikersnaam',
           required: true,
           value: docu.data().userName,
         }),
@@ -104,7 +109,7 @@ class ProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createLabel({
-          textContent: 'Phone Number*',
+          textContent: 'GSM Nummer*',
           inputType: 'info__phoneNumb',
         }),
       );
@@ -112,7 +117,7 @@ class ProfileComp extends Component {
         Elements.createInput({
           id: 'info__phoneNumb',
           type: 'number',
-          placeholder: 'Phone Number',
+          placeholder: 'GSM Nummer',
           required: true,
           value: docu.data().phoneNumb,
         }),
@@ -151,22 +156,60 @@ class ProfileComp extends Component {
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--primary',
-          textContent: 'SAVE',
+          textContent: 'SLA OP',
           onClick: () => { this.addDocument(); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
+          id: 'button--primary',
+          textContent: 'VERWIJDER',
+          onClick: () => { this.deleteDocument(); },
+        }),
+      );
+      profileContainer.appendChild(
+        Elements.createButton({
           id: 'button--primary__cancel',
-          textContent: 'CANCEL',
-          onClick: () => { location.replace('/dashboard'); },
+          textContent: 'GA TERUG',
+          onClick: () => { location.replace('/dashboard%DU'); },
+        }),
+      );
+      profileContainer.appendChild(
+        Elements.createBr(),
+      );
+      profileContainer.appendChild(
+        Elements.createBr(),
+      );
+      profileContainer.appendChild(
+        Elements.createHeader({
+          size:2,
+          textContent: 'Taal',
+        }),
+      );
+      profileContainer.appendChild(
+        Elements.createButton({
+          id: 'button--secondary',
+          textContent: 'Engels',
+          onClick: () => {location.replace('/settings%ENG')},
+        }),
+      );
+      profileContainer.appendChild(
+        Elements.createButton({
+          id: 'button--secondary',
+          textContent: 'Frans',
+          onClick: () => {location.replace('/settings%FR')},
+        }),
+      );
+      profileContainer.appendChild(
+        Elements.createButton({
+          id: 'button--secondary',
+          textContent: 'Nederlands',
+          onClick: () => {location.replace('/settings%NL')},
         }),
       );
     });
-    // create the header
-
     return profileContainer;
   }
 }
 
-export default ProfileComp;
+export default DUProfileComp;

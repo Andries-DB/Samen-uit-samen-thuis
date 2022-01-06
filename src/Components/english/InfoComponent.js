@@ -1,18 +1,17 @@
 /**
  * Account information Component
  */
-
-import Component from '../lib/Component';
-import Elements from '../lib/Elements';
+ import Component from '../../lib/Component.js';
+ import Elements from '../../lib/Elements.js';
 import {
   auth, signOut, db, setDoc, doc,
-} from '../lib/firebase';
+} from '../../lib/firebase.js';
 
 class InfoComp extends Component {
   constructor() {
     super({
       name: 'Account Information',
-      routerPath: '/accountinformation',
+      routerPath: '/accountinformation%ENG',
       model: {
       },
     });
@@ -43,7 +42,7 @@ class InfoComp extends Component {
       userName,
       phoneNumb,
     });
-    location.replace('/dashboard');
+    location.replace('/dashboard%ENG');
   }
 
   render() {

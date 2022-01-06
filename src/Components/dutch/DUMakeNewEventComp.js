@@ -2,23 +2,34 @@
  * The Make a new event Component
  */
 
-import Component from '../lib/Component';
-import Elements from '../lib/Elements';
+ import Component from '../../lib/Component.js';
+ import Elements from '../../lib/Elements.js';
 import {
-  doc, db, setDoc,
-} from '../lib/firebase';
+  doc, db, setDoc, onAuthStateChanged, auth, ref, storage, uploadBytes,
+} from '../../lib/firebase.js';
 
-class EventComp extends Component {
+class DUEventComp extends Component {
   constructor() {
     super({
-      name: 'Make a new event',
-      routerPath: '/makenewevent',
+      name: 'Maak een nieuw evenement',
+      routerPath: '/makenewevent%DU',
       model: {
       },
     });
   }
 
   // Functions
+  loggedinUser() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { email } = user;
+        localStorage.setItem('emaiLoggedInUser' , email);
+      } else {
+
+      }
+    });
+  }
+  
   async addDocument() {
     // Getting variables out of input tags
     const title = document.getElementById('info__title').value;
@@ -27,8 +38,18 @@ class EventComp extends Component {
     const zipCode = document.getElementById('info__zipCode').value;
     const city = document.getElementById('info__city').value;
     const date = document.getElementById('info__date').value;
+    const photo = document.getElementById('info__photo').value;
 
-    // putting variables into the events database with ID= title of the event
+    //Getting the email of the logged in user
+    const email = localStorage.getItem('emaiLoggedInUser');
+
+    //Creating reference of the photos
+    const reference = ref(storage, photo);
+
+    //Uploading the reference to the firebase cloud storage
+    uploadBytes(reference);
+
+    // putting variables into the events database with ID = title of the event
     await setDoc(doc(db, 'events', title), {
       title,
       description,
@@ -36,15 +57,16 @@ class EventComp extends Component {
       zipCode,
       city,
       date,
+      email,
+      photo,
     });
-
     location.reload();
   }
-
+  
   render() {
     // create a home container
     const eventContainer = document.createElement('div');
-
+    this.loggedinUser();
     eventContainer.appendChild(
       Elements.createHeader({
         size: 2,
@@ -53,7 +75,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'Photo',
+        textContent: 'Foto',
         inputType: 'info__photo',
       }),
     );
@@ -74,7 +96,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'Title*',
+        textContent: 'Titel*',
         inputType: 'info__title',
       }),
     );
@@ -82,7 +104,7 @@ class EventComp extends Component {
       Elements.createInput({
         id: 'info__title',
         type: 'text',
-        placeholder: 'title',
+        placeholder: 'Titel',
         required: true,
       }),
     );
@@ -91,7 +113,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'Description*',
+        textContent: 'Beschrijving*',
         inputType: 'info__description',
       }),
     );
@@ -99,7 +121,7 @@ class EventComp extends Component {
       Elements.createInput({
         id: 'info__description',
         type: 'text',
-        placeholder: 'description',
+        placeholder: 'Beschrijving',
         required: true,
       }),
     );
@@ -108,7 +130,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'Street*',
+        textContent: 'Straat*',
         inputType: 'info__street',
       }),
     );
@@ -116,7 +138,7 @@ class EventComp extends Component {
       Elements.createInput({
         id: 'info__street',
         type: 'text',
-        placeholder: 'street',
+        placeholder: 'straat',
         required: true,
       }),
     );
@@ -125,7 +147,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'ZIP code*',
+        textContent: 'Postcode*',
         inputType: 'info__zipCode',
       }),
     );
@@ -133,7 +155,7 @@ class EventComp extends Component {
       Elements.createInput({
         id: 'info__zipCode',
         type: 'text',
-        placeholder: 'ZIP code',
+        placeholder: 'Postcode',
         required: true,
       }),
     );
@@ -142,7 +164,7 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'City*',
+        textContent: 'Stad*',
         inputType: 'info__city',
       }),
     );
@@ -150,7 +172,7 @@ class EventComp extends Component {
       Elements.createInput({
         id: 'info__city',
         type: 'text',
-        placeholder: 'city',
+        placeholder: 'Stad',
         required: true,
       }),
     );
@@ -159,14 +181,14 @@ class EventComp extends Component {
     );
     eventContainer.appendChild(
       Elements.createLabel({
-        textContent: 'Date*',
+        textContent: 'Datum*',
         inputType: 'info__date',
       }),
     );
     eventContainer.appendChild(
       Elements.createInput({
         id: 'info__date',
-        type: 'date',
+        type: 'Datum',
         required: true,
       }),
     );
@@ -179,19 +201,19 @@ class EventComp extends Component {
     eventContainer.appendChild(
       Elements.createButton({
         id: 'button--primary',
-        textContent: 'MAKE NEW EVENT',
+        textContent: 'MAAK NIEUW EVENEMENT AAN',
         onClick: () => { this.addDocument(); },
       }),
     );
     eventContainer.appendChild(
       Elements.createButton({
         id: 'button--primary__cancel',
-        textContent: 'CANCEL',
-        onClick: () => { location.replace('/dashboard'); },
+        textContent: 'GA TERUG',
+        onClick: () => { location.replace('/dashboard%DU'); },
       }),
     );
     return eventContainer;
   }
 }
 
-export default EventComp;
+export default DUEventComp;

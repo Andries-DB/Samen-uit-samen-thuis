@@ -1,0 +1,11 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+@use "../abstracts/extends.scss" as e;
+@use "../abstracts/mixins" as m;
+@use "sass:map";
+
+#map {
+  width: f.pxtorem(375);
+  height: 300px;
+
+}

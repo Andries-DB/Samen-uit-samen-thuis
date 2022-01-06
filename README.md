@@ -19,6 +19,9 @@ Aggression of any kind has no place in society. That we can feel safe should be 
 ### ADOBE XD files 
 Coming soon
 
+### UML 
+Before I started with the SPA, I've made a UML structure. It is a developmental modeling language that is intended to provide a standard way to visualize the design of a system.
+
 ### Design System with SASS
 A design system is a complete set of standards intended to manage design at scale using reusable components and patterns.
 
@@ -55,7 +58,7 @@ Used firebase functions to register a new user:
 
 I've made a function (registerUser) where I put the necessary code to register. When the function was complete, I put it in the Onclick() event of my register button (btn--primary register).
 
-##### Extra information page
+#### Extra information page
 When you have registered a new user in the app, you go to the InfoComponent. There you will get asked to give some more information about yourself like your firstname, lastname, phone number, ... . Once u have given the required info, you will go to the dashboard page.
 
 I have made a function to do this. I made a collection in the firestore named 'usersInfo' where the information is saved. Each account has his own ID which is the email that I put in the localstorage. Later on in the app, you can still change the information that you gave.
@@ -73,13 +76,26 @@ Used firebase functions to log out:
 
 I've made a function (signOut) where I put the necessary code to sign out the current user. When the function was complete, I put it in the Onclick() event of my signOut button (btn--primary signOut).
 
-##### Map Page (COMING SOON)
+#### Event details page
+When you want to see the details of a event, there is a button that will redirect you to the details page. At that time, the title of the event you clicked on is stored in the localstorage. When you are on the details page, you see all the details of the specific event. There are 2 sorts of events, the ones you made, and the events other people made. 
 
-##### Profile Page
-I have made sure that when you are logged in you can view and edit your own information. There are 2 separate functions made for this:
+1) Event you made:
+    You can delete, update and read the details of the event. Once you've updated it, other people will instantly see the updated version of it. You are the only one that can update or delete the details of the event.
+2) Event others made:
+    You can only read the details of the event. You can't change anything or delete anything
+
+#### Map Page
+On the map page, you will see a map where your current location is centered. Every user has his marker. You will see all the users that are currently logged in. If u press the panic button, everyone within 500m will get an alert that you are in danger with the coördinates (don't know how to do coördinates -> adress) (Isn't working yet). There is a second button, report. Than you will be redirected to the report page.
+
+#### Report Page
+If you want to report an assault, you can do that on this page. There is a form that you can fill in. The location is automatically set on the location you are now but you can still change that. When the necessary information is filled in, there is a button SEND with in the onClick() event a function called sndmsg(). What this function does is it saves the filled in infomation into an email. With the sendGrid API, I can send a mail to a particular email-adress. (ISNT WORKING YET (code is there but isn't working)). U can change the email-adress to any adress you want.
+
+#### Settings Page
+On the settingspage, you can edit your own personal information by updating or deleting it. You can also change the language between Dutch, French and English. When you log in to the application, you will be automatically redirected to the english version of the page.
 
 1) Onsnapshot
 2) addDocument
+3) deleteDocument
 
 ###### Onsnapshot
 An initial call using the callback you provide creates a document snapshot immediately with the current contents of the single document. Then, each time the contents change, another call updates the document snapshot.
@@ -87,14 +103,21 @@ An initial call using the callback you provide creates a document snapshot immed
 ###### addDocument
 If you have changed your information, there is a button 'SAVE'. In the onClick() event of the button, I have put the addDocument() function. It overwrites the old information with the new information that you just changed.
 
+###### deleteDocument
+If you want to delete your account, there is a button 'DELETE'. In the onClick() event of the button, I've put the deleteDocument() function. It deletes the account and redirects you to the login page. The data stored in firestore will be deleted because the ID of the user is the email. There is a item in the localstorage that gets the currently logged in user so I can get the email adress.
 
 ### MORE COMING SOON
 
 ## My own contribution
-COMING SOON
+I've made 3 versions. The dutch, english and french version. Its all linked with each other. When you are on the settings page, you can choose for a specific language. However for the login, register & map page, I only have it in English. Login & register are coming soon but the Map page wouldn't work. Still figuring out how that comes
+
+MORE COMING SOON
 
 ## Deployment
-COMING SOON
+I've deployed my website with Firebase hosting. I chose firebase over Netflify because I already had some experience with the hosting service & I had to pay if I wanted to use Netlify
 
+The link is: https://samen-uit-samen-thuis-d3f81.web.app
+
+!! Not working !!
 ## Author
 Made by: Andries De Baere

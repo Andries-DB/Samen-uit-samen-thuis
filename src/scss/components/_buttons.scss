@@ -27,11 +27,14 @@ button {
 
     &__cancel {
       @extend %primary-button;
-      color: map-get($map: v.$colors, $key: red );
+      background-color: map-get($map: v.$colors, $key: red );
+      color: map-get($map: v.$colors, $key: black );
+
 
       &:hover {
         @extend %primary-buton-hover;
-        background-color: map-get($map: v.$colors, $key: red );
+        color: map-get($map: v.$colors, $key: red );
+        background-color: map-get($map: v.$colors, $key: black );
       }
     }
 

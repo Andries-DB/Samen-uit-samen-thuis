@@ -2,9 +2,9 @@
  * Register Component
  */
 
-import Component from '../lib/Component';
-import Elements from '../lib/Elements';
-import { auth, createUserWithEmailAndPassword } from '../lib/firebase';
+ import Component from '../../lib/Component.js';
+ import Elements from '../../lib/Elements.js';
+import { auth, createUserWithEmailAndPassword } from '../../lib/firebase.js';
 
 class RegisterComp extends Component {
   constructor() {
@@ -30,7 +30,8 @@ class RegisterComp extends Component {
       .then((userCredential) => {
         // Signed in
         const { user } = userCredential;
-        localStorage.setItem('email', document.getElementById('register__email').value);
+        localStorage.setItem('email', registerEmail);
+        localStorage.setItem('emaiLoggedInUser' , registerEmail);
         location.replace('/accountinformation');
       })
       .catch((error) => {

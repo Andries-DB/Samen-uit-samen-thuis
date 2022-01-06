@@ -7,16 +7,13 @@ const Elements = {
     const br = document.createElement('br');
     return br;
   },
-  creatediv(id) {
-    const div = document.createElement('div');
-    div.className = id;
-    return div;
-  },
+
   createP({ textContent = ' ' }) {
     const p = document.createElement('p');
     p.textContent = textContent;
     return p;
   },
+
   createButton({ id, textContent = '', onClick = null }) {
     const button = document.createElement('button');
     button.className = id;
@@ -45,13 +42,14 @@ const Elements = {
   },
 
   createInput({
-    id, type, placeholder, required = false, value,
+    id, type, placeholder, required = false, value, disabled = false,
   }) {
     const input = document.createElement('input');
     input.id = id;
     input.type = type;
     input.placeholder = placeholder;
     input.required = required;
+    input.disabled = disabled;
     if (value) input.value = value;
     return input;
   },
@@ -77,6 +75,46 @@ const Elements = {
       list.appendChild(li);
     });
     return list;
+  },
+  createcardYour({
+    id, idDivImg, idDivText, title, img, imgid, madeBy, date, idLink, hrefLink, link, onClick = null, imgAlt
+  }) {
+    const div = document.createElement('div');
+    const divImg = document.createElement('div');
+    const divText = document.createElement('div');
+    const divTexta = document.createElement('a');
+    const divTextTitle = document.createElement('h3');
+    const divImgSrc = document.createElement('img');
+    const divTextAuthor = document.createElement('h5');
+    const divTextDate = document.createElement('h5');
+    div.className = id;
+    divImg.className = idDivImg;
+    divText.className = idDivText;
+    divImgSrc.className = imgid;
+    divTexta.className = idLink;
+
+    divTextTitle.textContent = title;
+    divTextAuthor.textContent = madeBy;
+    divTextDate.textContent = date;
+    divTexta.textContent = link;
+
+    divImgSrc.src = img;
+    divImgSrc.alt = imgAlt;
+
+    divTexta.href = hrefLink;
+    if (onClick) divTexta.addEventListener('click', () => { onClick(); });
+
+
+    divText.appendChild(divTextTitle);
+    divText.appendChild(divTextAuthor);
+    divText.appendChild(divTextDate);
+    divText.appendChild(divTexta);
+
+    divImg.appendChild(divImgSrc);
+
+    div.appendChild(divImg);
+    div.appendChild(divText);
+    return div;
   },
 };
 
