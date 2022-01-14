@@ -2,7 +2,7 @@
  * The Router
  */
 
-import Navigo from 'navigo';
+import Navigo from 'node_modules/navigo/index.js';
 
 const Router = {
   router: null,
