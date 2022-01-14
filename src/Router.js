@@ -1,6 +1,7 @@
 /**
  * The Router
  */
+
  let Navigo = require('navigo');
 
 const Router = {
