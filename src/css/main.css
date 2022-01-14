@@ -450,6 +450,7 @@ a {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 0rem 0rem 0rem 1.25rem;
 }
 header a {
   margin: 1.25rem 1.25rem 0rem 0rem;
@@ -504,20 +505,18 @@ input::placeholder {
 .card {
   display: flex;
   background-color: #FFF;
-  height: 100%;
-  width: 32%;
-  justify-content: center;
-  border: none;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.9375rem;
+  margin: 0rem 0rem 0rem 1.875rem;
   border-radius: 1.875rem;
-  padding: 0.9375rem 0rem 0.9375rem 0rem;
-  cursor: pointer;
+  height: 100%;
+  width: 75%;
 }
 .card__img {
   justify-content: center;
   text-align: center;
 }
 .card__img--img {
-  height: 12.5rem;
+  height: 6.25rem;
   border-radius: 1.875rem;
 }
 .card__info {
@@ -531,10 +530,12 @@ button {
 }
 
 .button--primary__cancel {
-  color: #FF0000;
+  background-color: #FF0000;
+  color: #000;
 }
 .button--primary__cancel:hover {
-  background-color: #FF0000;
+  color: #FF0000;
+  background-color: #000;
 }
 .button--primary__small {
   font-size: 0.8125rem;

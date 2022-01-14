@@ -1,4 +1,3 @@
-import './scss/main.scss';
 // import Router from './Router';
 import App from './app.js';
 import {
