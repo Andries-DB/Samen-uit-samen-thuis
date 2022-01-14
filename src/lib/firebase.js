@@ -1,7 +1,7 @@
 /**
  * Firebase Hook
  */
-import 'regenerator-runtime/runtime';
+// import 'regenerator-runtime/runtime';
 import firebase from 'firebase/compat/app';
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
