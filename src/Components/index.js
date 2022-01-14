@@ -11,14 +11,14 @@ import InfoEventComp from './english/InfoEventComponent.js';
 import FRDashboardComp from './french/FRDashboardComp.js';
 import FRInfoComp from './french/FRInfoComp.js';
 import FRProfileComp from './french/FRSettingsComp.js';
-import FREventComp from './french/FRMakeNewEventComp';
+import FREventComp from './french/FRMakeNewEventComp.js';
 import FRReportComp from './french/FRReportComp.js';
 import FRInfoEventComp from './french/FRInfoEventComp.js';
 
 import DUDashboardComp from './dutch/DUDashboardComp.js';
 import DUInfoComp from './dutch/DUInfoComp.js';
 import DUProfileComp from './dutch/DUSettingsComp.js';
-import DUEventComp from './dutch/DUMakeNewEventComp';
+import DUEventComp from './dutch/DUMakeNewEventComp.js';
 import DUReportComp from './dutch/DUReportComp.js';
 import DUInfoEventComp from './dutch/DUInfoEventComp.js';
 export {

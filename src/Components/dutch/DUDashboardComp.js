@@ -5,8 +5,8 @@
  import {
   auth, signOut, getDocs, db, collection, storage, ref, getDownloadURL,
 } from '../../lib/firebase.js';
-import Component from '../../lib/Component';
-import Elements from '../../lib/Elements';
+import Component from '../../lib/Component.js';
+import Elements from '../../lib/Elements.js';
 
 class DUDashboardComp extends Component {
   constructor() {
