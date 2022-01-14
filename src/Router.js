@@ -1,8 +1,7 @@
 /**
  * The Router
  */
-
-import Navigo from '../node_modules/navigo';
+ let Navigo = require('navigo');
 
 const Router = {
   router: null,
