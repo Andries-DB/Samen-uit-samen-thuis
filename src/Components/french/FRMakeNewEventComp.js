@@ -2,6 +2,7 @@
  * The Make a new event Component
  */
 
+// Imports
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 import {
@@ -19,6 +20,8 @@ class FREventComp extends Component {
   }
 
   // Functions
+  // Getting the currently signed in user & getting the email & putting it in
+  // localstorage
   loggedinUser() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -28,6 +31,8 @@ class FREventComp extends Component {
     });
   }
 
+  // Adding a new event in the event database with a unique ID
+  // which is the title of the newly added event
   async addDocument() {
     // Getting variables out of input tags
     const title = document.getElementById('info__title').value;
@@ -64,7 +69,11 @@ class FREventComp extends Component {
   render() {
     // create a home container
     const eventContainer = document.createElement('div');
+
+    // Getting the email & putting it in localstorage
     this.loggedinUser();
+
+    // Creating the look of the page
     eventContainer.appendChild(
       Elements.createHeader({
         size: 2,

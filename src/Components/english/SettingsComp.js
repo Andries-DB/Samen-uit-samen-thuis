@@ -1,5 +1,5 @@
 /**
- * The Profile Component
+ * The Settings Component
  */
 
 // Imports

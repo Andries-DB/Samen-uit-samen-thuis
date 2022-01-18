@@ -1,7 +1,8 @@
 /**
- * The Profile Component
+ * The Settings Component
  */
 
+// Imports
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 import {
@@ -19,6 +20,7 @@ class DUProfileComp extends Component {
   }
 
   // Functions
+  // Updating the user's account information
   async addDocument() {
     const firstName = document.getElementById('info__firstName').value;
     const lastName = document.getElementById('info__lastName').value;
@@ -34,6 +36,7 @@ class DUProfileComp extends Component {
     });
   }
 
+  // Deleting the users account
   async deleteDocument() {
     const email = localStorage.getItem('emaiLoggedInUser');
 
@@ -46,7 +49,10 @@ class DUProfileComp extends Component {
     const profileContainer = document.createElement('div');
     const email = localStorage.getItem('email');
 
+    // Getting a specific user --> currently logged in user which we get with
+    // the unique ID which is the email. We get the mail trough localstorage.
     onSnapshot(doc(db, 'usersInfo', email), (docu) => {
+      // Creating the look of the page
       profileContainer.appendChild(
         Elements.createHeader({
           size: 2,

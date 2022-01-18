@@ -1,6 +1,8 @@
 /**
  * Account information Component
  */
+
+// Imports
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 import {
@@ -18,6 +20,7 @@ class DUInfoComp extends Component {
   }
 
   // Functions
+  // Sign out function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -29,6 +32,7 @@ class DUInfoComp extends Component {
       });
   }
 
+  // Updating the logged in users's information
   async addDocument() {
     const firstName = document.getElementById('info__firstName').value;
     const lastName = document.getElementById('info__lastName').value;
@@ -46,7 +50,6 @@ class DUInfoComp extends Component {
   }
 
   render() {
-    // destructure model
     // create the container
     const AccountContainer = document.createElement('div');
 

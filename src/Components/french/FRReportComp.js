@@ -1,6 +1,8 @@
 /**
  * The Report Component
  */
+
+// Imports
 import sgMail from '@sendgrid/mail';
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
@@ -17,12 +19,13 @@ class FRReportComp extends Component {
   }
 
   render() {
-    // Variabeles & constants
+    // Creating the home container & some variabeles
     const reportContainer = document.createElement('div');
     const EMAIL_API_KEY = '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';
     const MELDET_EMAIL = 'andries.debaerz@gmail.com';
 
     // Functions
+    // This function will send a mail to a specific email I put in the variable 'MELDET_MAIL
     function sendEmail() {
       sgMail.setApiKey(EMAIL_API_KEY);
       const msg = {
@@ -60,7 +63,7 @@ class FRReportComp extends Component {
     };
     const error = (e) => alert(`Nous n'avons pas pu obtenir votre emplacement ! Il y a eu une erreur inattendue qui est ${e}`);
 
-    // create the header
+    // creating the look of the page
     reportContainer.appendChild(
       Elements.createHeader({
         size: 2,

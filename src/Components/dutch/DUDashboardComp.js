@@ -2,12 +2,14 @@
  * The Dashboard Component
  */
 
+// Imports
 import {
   auth, signOut, getDocs, db, collection, storage, ref, getDownloadURL,
 } from '../../lib/firebase';
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 
+// Making a new class that gets the methods from the Component class
 class DUDashboardComp extends Component {
   constructor() {
     super({
@@ -20,6 +22,8 @@ class DUDashboardComp extends Component {
   }
 
   // Functions
+
+  // Signout function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -32,21 +36,24 @@ class DUDashboardComp extends Component {
   }
 
   render() {
-    // create a home container
+    // creating the home container & the header
     const dashboardContainer = document.createElement('div');
     const headerContainer = document.createElement('header');
     const yourEventContainer = document.createElement('div');
     const otherEventContainer = document.createElement('div');
 
     const { linkPhoto } = this.model;
-    // Function so we can load the already existing events.
+    // Function so we can load the already existing events. If email from event is the same
+    // as the currently logged in user's email, ...
     const loadEvent = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'events'));
         querySnapshot.forEach((doc) => {
           if (doc.get('email') === localStorage.getItem('emaiLoggedInUser')) {
+            // Creating the reference to the firebase storage to get the photo
             const reference = ref(storage, doc.get('photo'));
 
+            // ... This will be made, if the email isn't the same ...
             yourEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -65,6 +72,7 @@ class DUDashboardComp extends Component {
               }),
             );
           } else {
+            // ... this card will be made if the email isn't the same
             otherEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -89,7 +97,7 @@ class DUDashboardComp extends Component {
       }
     };
 
-    // Create Header
+    // Creating the look of the page
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--map',

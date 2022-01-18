@@ -36,7 +36,7 @@ class FRDashboardComp extends Component {
   }
 
   render() {
-    // creating the new containers & header
+    // creating the home container & the header
     const dashboardContainer = document.createElement('div');
     const headerContainer = document.createElement('header');
     const yourEventContainer = document.createElement('div');
@@ -73,7 +73,7 @@ class FRDashboardComp extends Component {
               }),
             );
           } else {
-            // ... this card will be made
+            // ... this card will be made if the email isn't the same
             otherEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -98,7 +98,7 @@ class FRDashboardComp extends Component {
       }
     };
 
-    // Create the look of the page
+    // Creating the look of the page
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--map',

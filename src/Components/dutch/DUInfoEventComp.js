@@ -1,6 +1,8 @@
 /**
  * Event information Component
  */
+
+// Imports
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 import {
@@ -18,7 +20,7 @@ class DUInfoEventComp extends Component {
   }
 
   // Functions
-
+  // Updating the information of the currently showed event
   async addDocument() {
     const title = document.getElementById('info__title').value;
     const description = document.getElementById('info__description').value;
@@ -40,6 +42,7 @@ class DUInfoEventComp extends Component {
     location.replace('/dashboard%DU');
   }
 
+  // Deleting the currently showed event
   async deleteDocument() {
     const title = document.getElementById('info__title').value;
 
@@ -48,12 +51,14 @@ class DUInfoEventComp extends Component {
   }
 
   render() {
-    // create the container
+    // create the container & getting information out of localstorage
     const EventContainer = document.createElement('div');
-
     const title = localStorage.getItem('eventName');
     const loggedInUser = localStorage.getItem('emaiLoggedInUser');
 
+    // Creating the look of the page
+    // Getting the events information out of the event database trough a unique ID, which is the
+    // title of the event
     onSnapshot(doc(db, 'events', title), (docu) => {
       if (docu.data().email === loggedInUser) {
         EventContainer.appendChild(
@@ -361,9 +366,6 @@ class DUInfoEventComp extends Component {
         );
       }
     });
-
-    // create the look of the page
-
     return EventContainer;
   }
 }
