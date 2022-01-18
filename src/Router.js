@@ -8,7 +8,7 @@ const Router = {
   router: null,
   getRouter() {
     if (!this.router) {
-      const rootUrl = `${window.location.protocol}//${window.location.host}`;
+      const rootUrl = '/';
       this.router = new Navigo(rootUrl, false);
     }
     return this.router;
