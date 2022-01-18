@@ -29,3 +29,8 @@ Storage, there is a problem while uploading the file. It gives me a fakepath so 
 
 The good news, Mostly of the other things are working. I can see, add, update, refresh events and the details of the events. I have 'your events' and 'other events' and not your, accepted & invited events. I don't know how I need to implement it but it's not that hard I think. I'm going to do that at the end because there are other more important things to do. I can edit & delete the profile information and delete the profile itself.
 I've made the app in 3 languages (english, dutch and french).
+
+### 18/01/2022
+I've been sick the past 2 weeks which explains why I haven't worked that much on the application
+
+The hosting works now, not with firebase but with render.com . The problem was, I was trying to host it from my src file, while I had to host it from the build file. The SendGrid API works not 100% but that's normal. The console.log with the necessary information works. About the map, When u are in panic, your marker changes color. But the problem is you see only your own marker, and not the others of the other logged in users. I don't really know how I need to solve this. 

@@ -106,18 +106,13 @@ If you have changed your information, there is a button 'SAVE'. In the onClick()
 ###### deleteDocument
 If you want to delete your account, there is a button 'DELETE'. In the onClick() event of the button, I've put the deleteDocument() function. It deletes the account and redirects you to the login page. The data stored in firestore will be deleted because the ID of the user is the email. There is a item in the localstorage that gets the currently logged in user so I can get the email adress.
 
-### MORE COMING SOON
-
 ## My own contribution
 I've made 3 versions. The dutch, english and french version. Its all linked with each other. When you are on the settings page, you can choose for a specific language. However for the login, register & map page, I only have it in English. Login & register are coming soon but the Map page wouldn't work. Still figuring out how that comes
-
-MORE COMING SOON
 
 ## Deployment
 I've deployed my website with Render. It is mostly the same as Netlify, but you don't need to pay for it which is easy. Everytime I push something to me repository on github, it will automatically change.
 
 The link is: https://samenuitsamenthuis.onrender.com/
 
-!! Not working !!
 ## Author
 Made by: Andries De Baere
