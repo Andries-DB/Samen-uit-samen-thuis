@@ -34,7 +34,7 @@ class LoginComp extends Component {
     signInWithEmailAndPassword(auth, signinEmail, signinPassw)
       .then((userCredential) => {
         // Signed in
-        location.replace('/dashboard%ENG');
+        location.replace('/dashboard_ENG');
         localStorage.setItem('emaiLoggedInUser', signinEmail);
       })
       .catch((error) => {
@@ -52,7 +52,7 @@ class LoginComp extends Component {
         const token = credential.accessToken;
         // The signed-in user info.
         const { user } = result;
-        location.replace('/dashboard%ENG');
+        location.replace('/dashboard_ENG');
         // ...
       }).catch((error) => {
         // Handle Errors here.
