@@ -1,16 +1,16 @@
 /**
  * Firebase Hook
  */
-// import 'regenerator-runtime/runtime';
-import firebase from '/firebase/compat/app';
+import 'regenerator-runtime/runtime';
+import firebase from 'firebase/compat/app';
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, onSnapshot, deleteDoc, getDocs, collection, getDownloadURL
+  getFirestore, doc, setDoc, onSnapshot, deleteDoc, getDocs, collection, getDownloadURL,
 } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes } from 'firebase/storage'
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -25,7 +25,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-// Initialize Authentication & provider so we can log in with google & email - password / Register with google & email
+// Initialize Authentication & provider so we can log in with google & email - password &
+// Register with google & email
 const auth = getAuth();
 const provider = new GoogleAuthProvider(app);
 

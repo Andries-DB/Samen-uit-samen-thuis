@@ -1,11 +1,13 @@
 /**
  * Account information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+
+// Imports
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   auth, signOut, db, setDoc, doc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class FRInfoComp extends Component {
   constructor() {
@@ -18,6 +20,7 @@ class FRInfoComp extends Component {
   }
 
   // Functions
+  // Sign out function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -29,6 +32,7 @@ class FRInfoComp extends Component {
       });
   }
 
+  // Updating the logged in users's information
   async addDocument() {
     const firstName = document.getElementById('info__firstName').value;
     const lastName = document.getElementById('info__lastName').value;
@@ -46,7 +50,6 @@ class FRInfoComp extends Component {
   }
 
   render() {
-    // destructure model
     // create the container
     const AccountContainer = document.createElement('div');
 
@@ -96,7 +99,7 @@ class FRInfoComp extends Component {
     );
     AccountContainer.appendChild(
       Elements.createLabel({
-        textContent: `Nom d'utilisateur*`,
+        textContent: 'Nom d\'utilisateur*',
         inputType: 'info__userName',
       }),
     );
@@ -104,7 +107,7 @@ class FRInfoComp extends Component {
       Elements.createInput({
         id: 'info__userName',
         type: 'text',
-        placeholder: `Nom d'utilisateur`,
+        placeholder: 'Nom d\'utilisateur',
         required: true,
       }),
     );

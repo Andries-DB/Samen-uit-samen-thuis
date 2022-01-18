@@ -1,11 +1,11 @@
 /**
  * The Profile Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
-  doc, onSnapshot, db, setDoc, deleteDoc
-} from '../../lib/firebase.js';
+  doc, onSnapshot, db, setDoc, deleteDoc,
+} from '../../lib/firebase';
 
 class FRProfileComp extends Component {
   constructor() {
@@ -32,8 +32,8 @@ class FRProfileComp extends Component {
       phoneNumb,
     });
   }
+
   async deleteDocument() {
-    
     const email = localStorage.getItem('emaiLoggedInUser');
 
     await deleteDoc(doc(db, 'usersInfo', email));
@@ -44,7 +44,7 @@ class FRProfileComp extends Component {
     // create a home container & variables
     const profileContainer = document.createElement('div');
     const email = localStorage.getItem('email');
-    
+
     onSnapshot(doc(db, 'usersInfo', email), (docu) => {
       profileContainer.appendChild(
         Elements.createHeader({
@@ -91,7 +91,7 @@ class FRProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createLabel({
-          textContent: `Nom d'utilisateur*`,
+          textContent: 'Nom d\'utilisateur*',
           inputType: 'info__userName',
         }),
       );
@@ -99,7 +99,7 @@ class FRProfileComp extends Component {
         Elements.createInput({
           id: 'info__userName',
           type: 'text',
-          placeholder: `Nom d'utilisateur`,
+          placeholder: 'Nom d\'utilisateur',
           required: true,
           value: docu.data().userName,
         }),
@@ -182,7 +182,7 @@ class FRProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createHeader({
-          size:2,
+          size: 2,
           textContent: 'Langues',
         }),
       );
@@ -190,21 +190,21 @@ class FRProfileComp extends Component {
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Anglais',
-          onClick: () => {location.replace('/settings%ENG');},
+          onClick: () => { location.replace('/settings%ENG'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Français',
-          onClick: () => {location.replace('/settings%FR');},
+          onClick: () => { location.replace('/settings%FR'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Néerlandais',
-          onClick: () => {location.replace('/settings%DU');},
+          onClick: () => { location.replace('/settings%DU'); },
         }),
       );
     });

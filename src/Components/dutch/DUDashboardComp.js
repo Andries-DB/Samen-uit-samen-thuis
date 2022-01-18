@@ -2,15 +2,15 @@
  * The Dashboard Component
  */
 
- import {
+import {
   auth, signOut, getDocs, db, collection, storage, ref, getDownloadURL,
-} from '../../lib/firebase.js';
-import Component from '../../lib/Component.js';
-import Elements from '../../lib/Elements.js';
+} from '../../lib/firebase';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class DUDashboardComp extends Component {
   constructor() {
-   super({
+    super({
       name: 'Home pagina',
       routerPath: '/dashboard%DU',
       model: {
@@ -39,13 +39,12 @@ class DUDashboardComp extends Component {
     const otherEventContainer = document.createElement('div');
 
     const { linkPhoto } = this.model;
-    // Function so we can load the already existing events. 
+    // Function so we can load the already existing events.
     const loadEvent = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'events'));
         querySnapshot.forEach((doc) => {
-          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser'))
-          {
+          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser')) {
             const reference = ref(storage, doc.get('photo'));
 
             yourEventContainer.appendChild(
@@ -56,17 +55,16 @@ class DUDashboardComp extends Component {
                 title: doc.get('title'),
                 img: linkPhoto,
                 imgid: 'card__img--img',
-                madeBy: `Gemaakt door jou`,
+                madeBy: 'Gemaakt door jou',
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%DU',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
             );
-          }
-          else{
+          } else {
             otherEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -79,20 +77,19 @@ class DUDashboardComp extends Component {
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%DU',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
-            );            
+            );
           }
-        })
+        });
+      } catch {
+        console.log('Error reading document');
       }
-      catch {
-        console.log("Error reading document");
-      }
-    }
+    };
 
-    //Create Header
+    // Create Header
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--map',
@@ -143,7 +140,7 @@ class DUDashboardComp extends Component {
       }),
     );
 
-    //Loading the eventfunction
+    // Loading the eventfunction
     window.addEventListener('load', loadEvent());
     dashboardContainer.appendChild(yourEventContainer);
 

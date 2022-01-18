@@ -1,16 +1,16 @@
 /**
  * Event information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   db, setDoc, doc, onSnapshot, deleteDoc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class FRInfoEventComp extends Component {
   constructor() {
     super({
-      name: `Informations sur l'événement`,
+      name: 'Informations sur l\'événement',
       routerPath: '/detailsEvent%FR',
       model: {
       },
@@ -18,7 +18,6 @@ class FRInfoEventComp extends Component {
   }
 
   // Functions
-  
 
   async addDocument() {
     const title = document.getElementById('info__title').value;
@@ -56,8 +55,7 @@ class FRInfoEventComp extends Component {
     const loggedInUser = localStorage.getItem('emaiLoggedInUser');
 
     onSnapshot(doc(db, 'events', title), (docu) => {
-      if(docu.data().email === loggedInUser)
-      {
+      if (docu.data().email === loggedInUser) {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -183,7 +181,7 @@ class FRInfoEventComp extends Component {
             required: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -194,8 +192,10 @@ class FRInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary',
             textContent: 'SAUVER',
-            onClick: () => { this.deleteDocument(); 
-              this.addDocument(); },
+            onClick: () => {
+              this.deleteDocument();
+              this.addDocument();
+            },
           }),
         );
         EventContainer.appendChild(
@@ -209,11 +209,10 @@ class FRInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'RETOURNER',
-            onClick: () => { location.replace('/dashboard%FR');},
+            onClick: () => { location.replace('/dashboard%FR'); },
           }),
         );
-      }
-      else {
+      } else {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -346,7 +345,7 @@ class FRInfoEventComp extends Component {
             disabled: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -357,14 +356,13 @@ class FRInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'RETOURNER',
-            onClick: () => { location.replace('/dashboard%FR');},
+            onClick: () => { location.replace('/dashboard%FR'); },
           }),
         );
       }
     });
 
     // create the look of the page
-    
 
     return EventContainer;
   }

@@ -2,11 +2,11 @@
  * The Make a new event Component
  */
 
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   doc, db, setDoc, onAuthStateChanged, auth, ref, storage, uploadBytes,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class FREventComp extends Component {
   constructor() {
@@ -23,13 +23,11 @@ class FREventComp extends Component {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const { email } = user;
-        localStorage.setItem('emaiLoggedInUser' , email);
-      } else {
-
+        localStorage.setItem('emaiLoggedInUser', email);
       }
     });
   }
-  
+
   async addDocument() {
     // Getting variables out of input tags
     const title = document.getElementById('info__title').value;
@@ -40,13 +38,13 @@ class FREventComp extends Component {
     const date = document.getElementById('info__date').value;
     const photo = document.getElementById('info__photo').value;
 
-    //Getting the email of the logged in user
+    // Getting the email of the logged in user
     const email = localStorage.getItem('emaiLoggedInUser');
 
-    //Creating reference of the photos
+    // Creating reference of the photos
     const reference = ref(storage, photo);
 
-    //Uploading the reference to the firebase cloud storage
+    // Uploading the reference to the firebase cloud storage
     uploadBytes(reference);
 
     // putting variables into the events database with ID = title of the event
@@ -62,7 +60,7 @@ class FREventComp extends Component {
     });
     location.reload();
   }
-  
+
   render() {
     // create a home container
     const eventContainer = document.createElement('div');

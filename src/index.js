@@ -1,13 +1,14 @@
+import './scss/main.scss';
 // import Router from './Router';
-import App from './app.js';
+import App from './app';
 import {
   LoginComp, RegisterComp, DashboardComp,
   InfoComp, ProfileComp, EventComp, MapComp, ReportComp,
-  InfoEventComp, FRDashboardComp, FRInfoComp, FRProfileComp, 
+  InfoEventComp, FRDashboardComp, FRInfoComp, FRProfileComp,
   FREventComp, FRReportComp, FRInfoEventComp, DUDashboardComp,
   DUInfoComp, DUProfileComp, DUEventComp, DUReportComp,
   DUInfoEventComp,
-} from './Components/index.js';
+} from './Components/index';
 
 const initApp = () => {
   const appContainer = document.getElementById('appContainer');
@@ -29,15 +30,13 @@ const initApp = () => {
   app.addComponent(new FREventComp());
   app.addComponent(new FRReportComp());
   app.addComponent(new FRInfoEventComp());
-  
+
   app.addComponent(new DUDashboardComp());
   app.addComponent(new DUInfoComp());
   app.addComponent(new DUProfileComp());
   app.addComponent(new DUEventComp());
   app.addComponent(new DUReportComp());
   app.addComponent(new DUInfoEventComp());
-
-  
 
   /* if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');

@@ -1,9 +1,9 @@
 /**
- * Account information Component
+ * MAP Component
  */
 import { Loader } from '@googlemaps/js-api-loader';
-import Component from '../../lib/Component.js';
-import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class MapComp extends Component {
   constructor() {
@@ -17,12 +17,13 @@ class MapComp extends Component {
   }
 
   // Functions
+  // This is the Panic function
   Panic() {
 
   }
 
   render() {
-    // Variables
+    // Creating the home container & the header
     let map;
     const GoogleMapContainer = document.createElement('div');
     const MapContainer = document.createElement('div');
@@ -56,7 +57,7 @@ class MapComp extends Component {
     // Get Geolocation
     navigator.geolocation.watchPosition(succes, error);
 
-    // Set Title & header
+    // Creating the look of the page
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--home',

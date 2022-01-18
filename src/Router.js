@@ -2,7 +2,7 @@
  * The Router
  */
 
- let Navigo = require('navigo');
+import Navigo from 'navigo';
 
 const Router = {
   router: null,

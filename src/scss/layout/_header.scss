@@ -8,10 +8,11 @@
 header {
   display: flex;
   justify-content: space-between;
-  @include mix.paddingTRBL(0,0,0,20);
+  @include mix.paddingTRBL(0,0,0,10);
 
 
   a {
     @include mix.marginTRBL(20,20,0,0);
+    text-decoration: underline;
   }
 }

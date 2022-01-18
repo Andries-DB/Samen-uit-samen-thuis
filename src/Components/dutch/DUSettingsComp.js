@@ -1,11 +1,12 @@
 /**
  * The Profile Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
-  doc, onSnapshot, db, setDoc, deleteDoc
-} from '../../lib/firebase.js';
+  doc, onSnapshot, db, setDoc, deleteDoc,
+} from '../../lib/firebase';
 
 class DUProfileComp extends Component {
   constructor() {
@@ -32,8 +33,8 @@ class DUProfileComp extends Component {
       phoneNumb,
     });
   }
+
   async deleteDocument() {
-    
     const email = localStorage.getItem('emaiLoggedInUser');
 
     await deleteDoc(doc(db, 'usersInfo', email));
@@ -44,7 +45,7 @@ class DUProfileComp extends Component {
     // create a home container & variables
     const profileContainer = document.createElement('div');
     const email = localStorage.getItem('email');
-    
+
     onSnapshot(doc(db, 'usersInfo', email), (docu) => {
       profileContainer.appendChild(
         Elements.createHeader({
@@ -182,7 +183,7 @@ class DUProfileComp extends Component {
       );
       profileContainer.appendChild(
         Elements.createHeader({
-          size:2,
+          size: 2,
           textContent: 'Taal',
         }),
       );
@@ -190,21 +191,21 @@ class DUProfileComp extends Component {
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Engels',
-          onClick: () => {location.replace('/settings%ENG')},
+          onClick: () => { location.replace('/settings%ENG'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Frans',
-          onClick: () => {location.replace('/settings%FR')},
+          onClick: () => { location.replace('/settings%FR'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Nederlands',
-          onClick: () => {location.replace('/settings%NL')},
+          onClick: () => { location.replace('/settings%NL'); },
         }),
       );
     });

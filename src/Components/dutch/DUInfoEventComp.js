@@ -1,11 +1,11 @@
 /**
  * Event information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   db, setDoc, doc, onSnapshot, deleteDoc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class DUInfoEventComp extends Component {
   constructor() {
@@ -18,7 +18,6 @@ class DUInfoEventComp extends Component {
   }
 
   // Functions
-  
 
   async addDocument() {
     const title = document.getElementById('info__title').value;
@@ -56,8 +55,7 @@ class DUInfoEventComp extends Component {
     const loggedInUser = localStorage.getItem('emaiLoggedInUser');
 
     onSnapshot(doc(db, 'events', title), (docu) => {
-      if(docu.data().email === loggedInUser)
-      {
+      if (docu.data().email === loggedInUser) {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -183,7 +181,7 @@ class DUInfoEventComp extends Component {
             required: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -194,8 +192,10 @@ class DUInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary',
             textContent: 'SLA OP',
-            onClick: () => { this.deleteDocument(); 
-              this.addDocument(); },
+            onClick: () => {
+              this.deleteDocument();
+              this.addDocument();
+            },
           }),
         );
         EventContainer.appendChild(
@@ -209,11 +209,10 @@ class DUInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'GA TERUG',
-            onClick: () => { location.replace('/dashboard%DU');},
+            onClick: () => { location.replace('/dashboard%DU'); },
           }),
         );
-      }
-      else {
+      } else {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -346,7 +345,7 @@ class DUInfoEventComp extends Component {
             disabled: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -357,14 +356,13 @@ class DUInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'GA TERUG',
-            onClick: () => { location.replace('/dashboard%DU');},
+            onClick: () => { location.replace('/dashboard%DU'); },
           }),
         );
       }
     });
 
     // create the look of the page
-    
 
     return EventContainer;
   }

@@ -2,16 +2,18 @@
  * The Dashboard Component
  */
 
- import {
+// Imports
+import {
   auth, signOut, getDocs, db, collection, storage, ref, getDownloadURL,
-} from '../../lib/firebase.js';
-import Component from '../../lib/Component.js';
-import Elements from '../../lib/Elements.js';
+} from '../../lib/firebase';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
+// Making a new class that gets the methods from the Component class
 class FRDashboardComp extends Component {
   constructor() {
-   super({
-      name: `Page d'accueil`,
+    super({
+      name: 'Page d\'accueil',
       routerPath: '/dashboard%FR',
       model: {
         linkPhoto: 'https://media.istockphoto.com/photos/large-group-of-people-at-a-concert-party-picture-id1311329449?b=1&k=20&m=1311329449&s=170667a&w=0&h=oiLJ0aGzcxEhM_5nczxFW9ng2VvELcTlXZbxOeSJhgA=',
@@ -20,6 +22,8 @@ class FRDashboardComp extends Component {
   }
 
   // Functions
+
+  // Sign out function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -27,27 +31,30 @@ class FRDashboardComp extends Component {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(`Une erreur s'est produite, l'erreur est${errorMessage}!`);
+        alert(`Une erreur s'est produite, l'erreur est ${errorMessage}!`);
       });
   }
 
   render() {
-    // create a home container
+    // creating the new containers & header
     const dashboardContainer = document.createElement('div');
     const headerContainer = document.createElement('header');
     const yourEventContainer = document.createElement('div');
     const otherEventContainer = document.createElement('div');
 
     const { linkPhoto } = this.model;
-    // Function so we can load the already existing events. 
+
+    // Function so we can load the already existing events. If email from event is the same
+    // as the currently logged in user's email, ...
     const loadEvent = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'events'));
         querySnapshot.forEach((doc) => {
-          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser'))
-          {
+          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser')) {
+            // Creating the reference to the storage from Firebase
             const reference = ref(storage, doc.get('photo'));
 
+            // ... This will be made, if the email isn't the same ...
             yourEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -56,17 +63,17 @@ class FRDashboardComp extends Component {
                 title: doc.get('title'),
                 img: linkPhoto,
                 imgid: 'card__img--img',
-                madeBy: `Fabriqué par toi`,
+                madeBy: 'Fabriqué par toi',
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%FR',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
             );
-          }
-          else{
+          } else {
+            // ... this card will be made
             otherEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -79,20 +86,19 @@ class FRDashboardComp extends Component {
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%FR',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
-            );            
+            );
           }
-        })
+        });
+      } catch {
+        console.log('Error reading document');
       }
-      catch {
-        console.log("Error reading document");
-      }
-    }
+    };
 
-    //Create Header
+    // Create the look of the page
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--map',
@@ -143,7 +149,7 @@ class FRDashboardComp extends Component {
       }),
     );
 
-    //Loading the eventfunction
+    // Loading the eventsfunction
     window.addEventListener('load', loadEvent());
     dashboardContainer.appendChild(yourEventContainer);
 

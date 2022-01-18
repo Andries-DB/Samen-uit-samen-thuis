@@ -2,9 +2,10 @@
  * Register Component
  */
 
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
-import { auth, createUserWithEmailAndPassword } from '../../lib/firebase.js';
+// Imports
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
+import { auth, createUserWithEmailAndPassword } from '../../lib/firebase';
 
 class RegisterComp extends Component {
   constructor() {
@@ -22,6 +23,8 @@ class RegisterComp extends Component {
   }
 
   // Functions
+  // Creating a new user in the users database. We create a new user with email & password,
+  // We put the email in 2 localstorages
   registerUser() {
     const registerEmail = document.getElementById('register__email').value;
     const registerPassw = document.getElementById('register__password').value;
@@ -31,7 +34,7 @@ class RegisterComp extends Component {
         // Signed in
         const { user } = userCredential;
         localStorage.setItem('email', registerEmail);
-        localStorage.setItem('emaiLoggedInUser' , registerEmail);
+        localStorage.setItem('emaiLoggedInUser', registerEmail);
         location.replace('/accountinformation');
       })
       .catch((error) => {
@@ -51,7 +54,7 @@ class RegisterComp extends Component {
     // create a home container
     const registerContainer = document.createElement('div');
 
-    // create a header
+    //  Creating the look of the page
     registerContainer.appendChild(
       Elements.createHeader({
         textContent: 'REGISTER',

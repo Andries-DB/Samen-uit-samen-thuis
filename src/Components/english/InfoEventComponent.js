@@ -1,11 +1,13 @@
 /**
  * Event information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+
+// Imports
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   db, setDoc, doc, onSnapshot, deleteDoc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class InfoEventComp extends Component {
   constructor() {
@@ -18,8 +20,7 @@ class InfoEventComp extends Component {
   }
 
   // Functions
-  
-
+  // Updating the information of the currently showed event
   async addDocument() {
     const title = document.getElementById('info__title').value;
     const description = document.getElementById('info__description').value;
@@ -41,6 +42,7 @@ class InfoEventComp extends Component {
     location.replace('/dashboard%ENG');
   }
 
+  // Deleting the currently showed event
   async deleteDocument() {
     const title = document.getElementById('info__title').value;
 
@@ -49,15 +51,16 @@ class InfoEventComp extends Component {
   }
 
   render() {
-    // create the container
+    // create the container & getting information out of localstorage
     const EventContainer = document.createElement('div');
-
     const title = localStorage.getItem('eventName');
     const loggedInUser = localStorage.getItem('emaiLoggedInUser');
 
+    // Creating the look of the page
+    // Getting the events information out of the event database trough a unique ID, which is the
+    // title of the event
     onSnapshot(doc(db, 'events', title), (docu) => {
-      if(docu.data().email === loggedInUser)
-      {
+      if (docu.data().email === loggedInUser) {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -183,7 +186,7 @@ class InfoEventComp extends Component {
             required: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -194,8 +197,10 @@ class InfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary',
             textContent: 'SAVE',
-            onClick: () => { this.deleteDocument(); 
-              this.addDocument(); },
+            onClick: () => {
+              this.deleteDocument();
+              this.addDocument();
+            },
           }),
         );
         EventContainer.appendChild(
@@ -209,11 +214,10 @@ class InfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'CANCEL',
-            onClick: () => { location.replace('/dashboard%ENG');},
+            onClick: () => { location.replace('/dashboard%ENG'); },
           }),
         );
-      }
-      else {
+      } else {
         EventContainer.appendChild(
           Elements.createHeader({
             size: 2,
@@ -346,7 +350,7 @@ class InfoEventComp extends Component {
             disabled: true,
           }),
         );
-    
+
         EventContainer.appendChild(
           Elements.createHeader({
             size: 5,
@@ -357,14 +361,13 @@ class InfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'CANCEL',
-            onClick: () => { location.replace('/dashboard%ENG');},
+            onClick: () => { location.replace('/dashboard%ENG'); },
           }),
         );
       }
     });
 
     // create the look of the page
-    
 
     return EventContainer;
   }

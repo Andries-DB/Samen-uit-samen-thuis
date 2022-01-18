@@ -2,15 +2,16 @@
  * The Dashboard Component
  */
 
+// Imports
 import {
   auth, signOut, getDocs, db, collection, storage, ref, getDownloadURL,
-} from '../../lib/firebase.js';
-import Component from '../../lib/Component.js'
-import Elements from '../../lib/Elements.js';
+} from '../../lib/firebase';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class DashboardComp extends Component {
   constructor() {
-   super({
+    super({
       name: 'Dashboard',
       routerPath: '/dashboard%ENG',
       model: {
@@ -20,6 +21,8 @@ class DashboardComp extends Component {
   }
 
   // Functions
+
+  // Sign out function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -32,20 +35,20 @@ class DashboardComp extends Component {
   }
 
   render() {
-    // create a home container
+    // creating the home container & the header
     const dashboardContainer = document.createElement('div');
     const headerContainer = document.createElement('header');
     const yourEventContainer = document.createElement('div');
     const otherEventContainer = document.createElement('div');
 
     const { linkPhoto } = this.model;
-    // Function so we can load the already existing events. 
+    // Function so we can load the already existing events.
     const loadEvent = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'events'));
         querySnapshot.forEach((doc) => {
-          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser'))
-          {
+          if (doc.get('email') === localStorage.getItem('emaiLoggedInUser')) {
+            // Creating the reference to the firebase storage to get the photo
             const reference = ref(storage, doc.get('photo'));
 
             yourEventContainer.appendChild(
@@ -56,17 +59,16 @@ class DashboardComp extends Component {
                 title: doc.get('title'),
                 img: linkPhoto,
                 imgid: 'card__img--img',
-                madeBy: `Made by you`,
+                madeBy: 'Made by you',
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%ENG',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
             );
-          }
-          else{
+          } else {
             otherEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -79,25 +81,24 @@ class DashboardComp extends Component {
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent%ENG',
-                link: "details",
-                imgAlt: "Foto",
-                onClick: () => {localStorage.setItem('eventName' , doc.get('title'));}, 
+                link: 'details',
+                imgAlt: 'Foto',
+                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
               }),
-            );            
+            );
           }
-        })
+        });
+      } catch {
+        console.log('Error reading document');
       }
-      catch {
-        console.log("Error reading document");
-      }
-    }
+    };
 
-    //Create Header
+    // Create Header
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--map',
         textContent: 'MAP',
-        href: '/map%ENG',
+        href: '/map',
       }),
     );
 
@@ -143,7 +144,7 @@ class DashboardComp extends Component {
       }),
     );
 
-    //Loading the eventfunction
+    // Loading the eventfunction
     window.addEventListener('load', loadEvent());
     dashboardContainer.appendChild(yourEventContainer);
 

@@ -2,12 +2,13 @@
  * The Home Component
  */
 
+// Imports
 import {
   auth, signInWithEmailAndPassword, provider,
   signInWithPopup, GoogleAuthProvider,
-} from '../../lib/firebase.js';
-import Component from '../../lib/Component.js';
-import Elements from '../../lib/Elements.js';
+} from '../../lib/firebase';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class LoginComp extends Component {
   constructor() {
@@ -25,6 +26,7 @@ class LoginComp extends Component {
   }
 
   // Functions
+  // Sign in a user trough email & password
   signin() {
     const signinEmail = document.getElementById('login__email').value;
     const signinPassw = document.getElementById('login__password').value;
@@ -33,7 +35,7 @@ class LoginComp extends Component {
       .then((userCredential) => {
         // Signed in
         location.replace('/dashboard%ENG');
-        localStorage.setItem('emaiLoggedInUser' , signinEmail);
+        localStorage.setItem('emaiLoggedInUser', signinEmail);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -41,6 +43,7 @@ class LoginComp extends Component {
       });
   }
 
+  // Sign in a user trough google
   signInWithGoogle() {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -76,7 +79,7 @@ class LoginComp extends Component {
     // create a home container
     const loginContainer = document.createElement('div');
 
-    // create a header
+    // Creating the look of the page
     loginContainer.appendChild(
       Elements.createHeader({
         textContent: 'LOGIN',

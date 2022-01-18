@@ -1,11 +1,13 @@
 /**
  * Account information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+
+// Imports
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   auth, signOut, db, setDoc, doc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class InfoComp extends Component {
   constructor() {
@@ -18,6 +20,7 @@ class InfoComp extends Component {
   }
 
   // Functions
+  // Sign out function
   signOut() {
     signOut(auth)
       .then(() => {
@@ -29,6 +32,7 @@ class InfoComp extends Component {
       });
   }
 
+  // Updating the logged in users's information
   async addDocument() {
     const firstName = document.getElementById('info__firstName').value;
     const lastName = document.getElementById('info__lastName').value;
@@ -46,7 +50,6 @@ class InfoComp extends Component {
   }
 
   render() {
-    // destructure model
     // create the container
     const AccountContainer = document.createElement('div');
 

@@ -1,11 +1,11 @@
 /**
  * Account information Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 import {
   auth, signOut, db, setDoc, doc,
-} from '../../lib/firebase.js';
+} from '../../lib/firebase';
 
 class DUInfoComp extends Component {
   constructor() {

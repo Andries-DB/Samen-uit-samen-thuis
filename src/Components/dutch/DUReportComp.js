@@ -1,8 +1,9 @@
 /**
  * The Report Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+import sgMail from '@sendgrid/mail';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class DUReportComp extends Component {
   constructor() {
@@ -23,7 +24,6 @@ class DUReportComp extends Component {
 
     // Functions
     function sendEmail() {
-      const sgMail = require('@sendgrid/mail');
       sgMail.setApiKey(EMAIL_API_KEY);
       const msg = {
         to: MELDET_EMAIL, // Change to your recipient
@@ -44,7 +44,8 @@ class DUReportComp extends Component {
       })();
     }
 
-    // Functions for the Geolocation, if success, the adress gets filled with the coördinats of the current postion,
+    // Functions for the Geolocation, if success, the adress gets
+    // filled with the coördinats of the current postion,
     // If not, there will be an alert
     const succes = (position) => {
       reportContainer.appendChild(

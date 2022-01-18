@@ -1,8 +1,11 @@
 /**
  * The Report Component
  */
- import Component from '../../lib/Component.js';
- import Elements from '../../lib/Elements.js';
+
+// Imports
+import sgMail from '@sendgrid/mail';
+import Component from '../../lib/Component';
+import Elements from '../../lib/Elements';
 
 class ReportComp extends Component {
   constructor() {
@@ -16,14 +19,14 @@ class ReportComp extends Component {
   }
 
   render() {
-    // Variabeles & constants
+    // Creating the home container & some variabeles
     const reportContainer = document.createElement('div');
     const EMAIL_API_KEY = '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';
     const MELDET_EMAIL = 'andries.debaerz@gmail.com';
 
     // Functions
+    // This function will send a mail to a specific email I put in the variable 'MELDET_MAIL
     function sendEmail() {
-      const sgMail = require('@sendgrid/mail');
       sgMail.setApiKey(EMAIL_API_KEY);
       const msg = {
         to: MELDET_EMAIL, // Change to your recipient
@@ -34,7 +37,7 @@ class ReportComp extends Component {
       };
       (async () => {
         try {
-          await sgMail.send(msg);
+          await console.log(msg);
         } catch (error) {
           console.error(error);
           if (error.response) {
@@ -44,7 +47,8 @@ class ReportComp extends Component {
       })();
     }
 
-    // Functions for the Geolocation, if success, the adress gets filled with the coördinats of the current postion,
+    // Functions for the Geolocation, if success, the adress gets filled
+    // with the coördinats of the current postion,
     // If not, there will be an alert
     const succes = (position) => {
       reportContainer.appendChild(
@@ -59,7 +63,7 @@ class ReportComp extends Component {
     };
     const error = (e) => alert(`We couldn't get your location! There was an unexpected error which is ${e}`);
 
-    // create the header
+    // Creating the look of the page
     reportContainer.appendChild(
       Elements.createHeader({
         size: 2,
