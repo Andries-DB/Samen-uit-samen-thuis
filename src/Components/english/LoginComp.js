@@ -52,8 +52,6 @@ class LoginComp extends Component {
         const token = credential.accessToken;
         // The signed-in user info.
         const { user } = result;
-        location.replace('/dashboard_ENG');
-        // ...
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
@@ -106,7 +104,10 @@ class LoginComp extends Component {
       Elements.createButton({
         id: 'button--primary login',
         textContent: 'LOGIN',
-        onClick: () => { this.signin(); },
+        onClick: () => {
+          this.signin();
+          location.replace('/dashboar_ENG');
+        },
       }),
     );
     loginContainer.appendChild(
