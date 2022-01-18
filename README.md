@@ -88,7 +88,7 @@ When you want to see the details of a event, there is a button that will redirec
 On the map page, you will see a map where your current location is centered. Every user has his marker. You will see all the users that are currently logged in. If u press the panic button, everyone within 500m will get an alert that you are in danger with the coördinates (don't know how to do coördinates -> adress) (Isn't working yet). There is a second button, report. Than you will be redirected to the report page.
 
 #### Report Page
-If you want to report an assault, you can do that on this page. There is a form that you can fill in. The location is automatically set on the location you are now but you can still change that. When the necessary information is filled in, there is a button SEND with in the onClick() event a function called sndmsg(). What this function does is it saves the filled in infomation into an email. With the sendGrid API, I can send a mail to a particular email-adress. (ISNT WORKING YET (code is there but isn't working)). U can change the email-adress to any adress you want.
+If you want to report an assault, you can do that on this page. There is a form that you can fill in. The location is automatically set on the location you are now but you can still change that. When the necessary information is filled in, there is a button SEND with in the onClick() event a function called sndmsg(). What this function does is it saves the filled in infomation into an email. With the sendGrid API, I can send a mail to a particular email-adress. (ISNT WORKING YET (code is there but isn't working, instead I log the email to the console)). U can change the email-adress to any adress you want.
 
 #### Settings Page
 On the settingspage, you can edit your own personal information by updating or deleting it. You can also change the language between Dutch, French and English. When you log in to the application, you will be automatically redirected to the english version of the page.
@@ -114,9 +114,9 @@ I've made 3 versions. The dutch, english and french version. Its all linked with
 MORE COMING SOON
 
 ## Deployment
-I've deployed my website with Firebase hosting. I chose firebase over Netflify because I already had some experience with the hosting service & I had to pay if I wanted to use Netlify
+I've deployed my website with Render. It is mostly the same as Netlify, but you don't need to pay for it which is easy. Everytime I push something to me repository on github, it will automatically change.
 
-The link is: https://samen-uit-samen-thuis-d3f81.web.app
+The link is: https://samenuitsamenthuis.onrender.com/
 
 !! Not working !!
 ## Author

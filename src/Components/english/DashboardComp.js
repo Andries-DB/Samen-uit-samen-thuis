@@ -144,7 +144,7 @@ class DashboardComp extends Component {
       Elements.createHeader({
         id: 'dashboard--Events__yourEvent',
         textContent: 'Your events',
-        size: 5,
+        size: 3,
       }),
     );
 
@@ -156,7 +156,7 @@ class DashboardComp extends Component {
       Elements.createHeader({
         id: 'dashboard--Events__otherEvents',
         textContent: 'Other events',
-        size: 5,
+        size: 3,
       }),
     );
     dashboardContainer.appendChild(otherEventContainer);

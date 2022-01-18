@@ -46,7 +46,7 @@ class InfoComp extends Component {
       userName,
       phoneNumb,
     });
-    location.replace('/dashboard_ENG');
+    location.replace('/dashboard');
   }
 
   render() {

@@ -27,13 +27,18 @@ class ReportComp extends Component {
     // Functions
     // This function will send a mail to a specific email I put in the variable 'MELDET_MAIL
     function sendEmail() {
+      const title = document.getElementById('info__title').value;
+      const date = document.getElementById('info__date').value;
+      const Description = document.getElementById('info__description').value;
+      const Category = document.getElementById('info__category').value;
+      const adress = document.getElementById('info__adress').value;
+
       sgMail.setApiKey(EMAIL_API_KEY);
       const msg = {
         to: MELDET_EMAIL, // Change to your recipient
         from: 'andries.debaerz@gmail.com', // Change to your verified sender
         subject: 'MELDET Assault',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        text: `There has been reported a new assault. Title: ${title}, Date of the assault: ${date}, Description: ${Description}, Category: ${Category}, Adress: ${adress}`,
       };
       (async () => {
         try {
@@ -74,7 +79,7 @@ class ReportComp extends Component {
       Elements.createButton({
         id: 'button--primary',
         textContent: 'Go back',
-        onClick: () => { location.replace('/dashboard_ENG'); },
+        onClick: () => { location.replace('/dashboard'); },
       }),
     );
     reportContainer.appendChild(

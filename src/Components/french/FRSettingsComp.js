@@ -26,7 +26,7 @@ class FRProfileComp extends Component {
     const lastName = document.getElementById('info__lastName').value;
     const userName = document.getElementById('info__userName').value;
     const phoneNumb = document.getElementById('info__phoneNumb').value;
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem('emaiLoggedInUser');
 
     await setDoc(doc(db, 'usersInfo', email), {
       firstName,

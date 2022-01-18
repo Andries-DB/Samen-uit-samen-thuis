@@ -26,7 +26,7 @@ class ProfileComp extends Component {
     const lastName = document.getElementById('info__lastName').value;
     const userName = document.getElementById('info__userName').value;
     const phoneNumb = document.getElementById('info__phoneNumb').value;
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem('emaiLoggedInUser');
 
     await setDoc(doc(db, 'usersInfo', email), {
       firstName,
@@ -34,6 +34,7 @@ class ProfileComp extends Component {
       userName,
       phoneNumb,
     });
+    location.replace('/settings_ENG');
   }
 
   // Deleting the users account
@@ -178,7 +179,7 @@ class ProfileComp extends Component {
         Elements.createButton({
           id: 'button--primary__cancel',
           textContent: 'CANCEL',
-          onClick: () => { location.replace('/dashboard_ENG'); },
+          onClick: () => { location.replace('/dashboard'); },
         }),
       );
       profileContainer.appendChild(

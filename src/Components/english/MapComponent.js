@@ -25,6 +25,7 @@ class MapComp extends Component {
   render() {
     // Creating the home container & the header
     let map;
+    const btnPanic = document.getElementById('button--primary__panic');
     const GoogleMapContainer = document.createElement('div');
     const MapContainer = document.createElement('div');
     const headerContainer = document.createElement('header');
@@ -48,6 +49,22 @@ class MapComp extends Component {
           const marker = new google.maps.Marker({
             position: { lat: position.coords.latitude, lng: position.coords.longitude },
             map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+          });
+        }),
+      );
+    };
+    const panic = (position) => {
+      GoogleMapContainer.append(
+        loader.load().then(() => {
+          map = new google.maps.Map(GoogleMapContainer, {
+            center: { lat: position.coords.latitude, lng: position.coords.longitude },
+            zoom: 15,
+          });
+          const marker = new google.maps.Marker({
+            position: { lat: position.coords.latitude, lng: position.coords.longitude },
+            map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           });
         }),
       );
@@ -80,9 +97,9 @@ class MapComp extends Component {
 
     MapContainer.appendChild(
       Elements.createButton({
-        id: 'button--primary',
+        id: 'button--primary panic',
         textContent: 'PANIC',
-
+        onClick: () => { navigator.geolocation.watchPosition(panic, error); },
       }),
     );
     MapContainer.appendChild(

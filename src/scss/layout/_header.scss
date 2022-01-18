@@ -7,12 +7,18 @@
 
 header {
   display: flex;
-  justify-content: space-between;
-  @include mix.paddingTRBL(0,0,0,10);
+  justify-content: center;
+  text-align: center;
+  @include mix.marginTRBL(0,0,0,0);
+  @include mix.paddingTRBL(0,0,0,0);
 
 
   a {
-    @include mix.marginTRBL(20,20,0,0);
+    @include mix.marginTRBL(20,0,0,40);
     text-decoration: underline;
+  }
+  button {
+    @include mix.marginTRBL(10,40,0,40);
+    width: 30%;
   }
 }

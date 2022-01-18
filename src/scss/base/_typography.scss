@@ -31,20 +31,16 @@ h5 {
   font-size: f.pxtorem(13);
   color: map-get($map: v.$colors , $key: purple );
   text-align: right;
+
 }
 h6 {
   font-weight: v.$font-weight_light;
   font-size: f.pxtorem(10);
   color: map-get($map: v.$colors , $key: blue );
+
 }
 blockquote {
   @include m.marginTRBL(10,10,10,10);
   @include m.paddingTRBL(36,36,36,36);
 }
 
-a{
-  color: map-get($map: v.$colors , $key: blue );
-  text-decoration: none;
-  font-size: f.pxtorem(15);
-  @include m.marginTRBL(0,0,0,0);
-}

@@ -216,7 +216,7 @@ class EventComp extends Component {
       Elements.createButton({
         id: 'button--primary__cancel',
         textContent: 'CANCEL',
-        onClick: () => { location.replace('/dashboard_ENG'); },
+        onClick: () => { location.replace('/dashboard'); },
       }),
     );
     return eventContainer;
