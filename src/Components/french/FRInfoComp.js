@@ -13,7 +13,7 @@ class FRInfoComp extends Component {
   constructor() {
     super({
       name: 'Account Information',
-      routerPath: '/accountinformation%FR',
+      routerPath: '/accountinformation_FR',
       model: {
       },
     });
@@ -46,7 +46,7 @@ class FRInfoComp extends Component {
       userName,
       phoneNumb,
     });
-    location.replace('/dashboard%FR');
+    location.replace('/dashboard_FR');
   }
 
   render() {

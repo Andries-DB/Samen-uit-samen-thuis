@@ -35,7 +35,7 @@ class RegisterComp extends Component {
         const { user } = userCredential;
         localStorage.setItem('email', registerEmail);
         localStorage.setItem('emaiLoggedInUser', registerEmail);
-        location.replace('/accountinformation');
+        location.replace('/accountinformation_ENG');
       })
       .catch((error) => {
         const errorMessage = error.message;

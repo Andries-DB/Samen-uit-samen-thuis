@@ -65,7 +65,7 @@ class DashboardComp extends Component {
                 madeBy: 'Made by you',
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
-                hrefLink: '/detailsEvent%ENG',
+                hrefLink: '/detailsEvent_ENG',
                 link: 'details',
                 imgAlt: 'Foto',
                 onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
@@ -84,7 +84,7 @@ class DashboardComp extends Component {
                 madeBy: `Made by ${doc.get('email')}`,
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
-                hrefLink: '/detailsEvent%ENG',
+                hrefLink: '/detailsEvent_ENG',
                 link: 'details',
                 imgAlt: 'Foto',
                 onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
@@ -110,14 +110,14 @@ class DashboardComp extends Component {
       Elements.createLink({
         id: 'header--profile',
         textContent: 'REPORT',
-        href: '/report%ENG',
+        href: '/report_ENG',
       }),
     );
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--profile',
         textContent: 'SETTINGS',
-        href: '/settings%ENG',
+        href: '/settings_ENG',
       }),
     );
     headerContainer.appendChild(
@@ -164,7 +164,7 @@ class DashboardComp extends Component {
       Elements.createButton({
         id: 'dashboard--Events__makeNewEvent button--primary',
         textContent: 'MAKE A NEW EVENT',
-        onClick: () => { location.replace('/makenewevent%ENG'); },
+        onClick: () => { location.replace('/makenewevent_ENG'); },
       }),
     );
     return dashboardContainer;

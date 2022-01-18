@@ -62,7 +62,7 @@ class MapComp extends Component {
       Elements.createLink({
         id: 'header--home',
         textContent: '<-- GO BACK',
-        href: '/dashboard%ENG',
+        href: '/dashboard_ENG',
       }),
     );
     // append header to div
@@ -89,7 +89,7 @@ class MapComp extends Component {
       Elements.createButton({
         id: 'button--primary',
         textContent: 'REPORT',
-        onClick: () => { location.replace('/report%ENG'); },
+        onClick: () => { location.replace('/report_ENG'); },
       }),
     );
     return MapContainer;

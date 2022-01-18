@@ -13,7 +13,7 @@ class DUInfoEventComp extends Component {
   constructor() {
     super({
       name: 'Evenement Informatie',
-      routerPath: '/detailsEvent%DU',
+      routerPath: '/detailsEvent_DU',
       model: {
       },
     });
@@ -39,7 +39,7 @@ class DUInfoEventComp extends Component {
       date,
       email,
     });
-    location.replace('/dashboard%DU');
+    location.replace('/dashboard_DU');
   }
 
   // Deleting the currently showed event
@@ -47,7 +47,7 @@ class DUInfoEventComp extends Component {
     const title = document.getElementById('info__title').value;
 
     await deleteDoc(doc(db, 'events', title));
-    location.replace('/dashboard%DU');
+    location.replace('/dashboard_DU');
   }
 
   render() {
@@ -214,7 +214,7 @@ class DUInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'GA TERUG',
-            onClick: () => { location.replace('/dashboard%DU'); },
+            onClick: () => { location.replace('/dashboard_DU'); },
           }),
         );
       } else {
@@ -361,7 +361,7 @@ class DUInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'GA TERUG',
-            onClick: () => { location.replace('/dashboard%DU'); },
+            onClick: () => { location.replace('/dashboard_DU'); },
           }),
         );
       }

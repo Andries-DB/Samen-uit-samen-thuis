@@ -13,7 +13,7 @@ class FRInfoEventComp extends Component {
   constructor() {
     super({
       name: 'Informations sur l\'événement',
-      routerPath: '/detailsEvent%FR',
+      routerPath: '/detailsEvent_FR',
       model: {
       },
     });
@@ -39,7 +39,7 @@ class FRInfoEventComp extends Component {
       date,
       email,
     });
-    location.replace('/dashboard%FR');
+    location.replace('/dashboard_FR');
   }
 
   // Deleting the currently showed event
@@ -47,7 +47,7 @@ class FRInfoEventComp extends Component {
     const title = document.getElementById('info__title').value;
 
     await deleteDoc(doc(db, 'events', title));
-    location.replace('/dashboard%FR');
+    location.replace('/dashboard_FR');
   }
 
   render() {
@@ -214,7 +214,7 @@ class FRInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'RETOURNER',
-            onClick: () => { location.replace('/dashboard%FR'); },
+            onClick: () => { location.replace('/dashboard_FR'); },
           }),
         );
       } else {
@@ -361,7 +361,7 @@ class FRInfoEventComp extends Component {
           Elements.createButton({
             id: 'button--primary__cancel',
             textContent: 'RETOURNER',
-            onClick: () => { location.replace('/dashboard%FR'); },
+            onClick: () => { location.replace('/dashboard_FR'); },
           }),
         );
       }

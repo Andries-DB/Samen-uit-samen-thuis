@@ -14,7 +14,7 @@ class FRDashboardComp extends Component {
   constructor() {
     super({
       name: 'Page d\'accueil',
-      routerPath: '/dashboard%FR',
+      routerPath: '/dashboard_FR',
       model: {
         linkPhoto: 'https://media.istockphoto.com/photos/large-group-of-people-at-a-concert-party-picture-id1311329449?b=1&k=20&m=1311329449&s=170667a&w=0&h=oiLJ0aGzcxEhM_5nczxFW9ng2VvELcTlXZbxOeSJhgA=',
       },
@@ -66,7 +66,7 @@ class FRDashboardComp extends Component {
                 madeBy: 'Fabriqué par toi',
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
-                hrefLink: '/detailsEvent%FR',
+                hrefLink: '/detailsEvent_FR',
                 link: 'details',
                 imgAlt: 'Foto',
                 onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
@@ -85,7 +85,7 @@ class FRDashboardComp extends Component {
                 madeBy: `Fabriqué par ${doc.get('email')}`,
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
-                hrefLink: '/detailsEvent%FR',
+                hrefLink: '/detailsEvent_FR',
                 link: 'details',
                 imgAlt: 'Foto',
                 onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
@@ -111,14 +111,14 @@ class FRDashboardComp extends Component {
       Elements.createLink({
         id: 'header--profile',
         textContent: 'RAPPORT',
-        href: '/report%FR',
+        href: '/report_FR',
       }),
     );
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--profile',
         textContent: 'PARAMÈTRES',
-        href: '/settings%FR',
+        href: '/settings_FR',
       }),
     );
     headerContainer.appendChild(
@@ -165,7 +165,7 @@ class FRDashboardComp extends Component {
       Elements.createButton({
         id: 'dashboard--Events__makeNewEvent button--primary',
         textContent: 'CRÉER UN NOUVEL ÉVÉNEMENTS ',
-        onClick: () => { location.replace('/makenewevent%FR'); },
+        onClick: () => { location.replace('/makenewevent_FR'); },
       }),
     );
     return dashboardContainer;

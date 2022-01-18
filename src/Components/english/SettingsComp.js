@@ -13,7 +13,7 @@ class ProfileComp extends Component {
   constructor() {
     super({
       name: 'Settings',
-      routerPath: '/settings%ENG',
+      routerPath: '/settings_ENG',
       model: {
       },
     });
@@ -178,7 +178,7 @@ class ProfileComp extends Component {
         Elements.createButton({
           id: 'button--primary__cancel',
           textContent: 'CANCEL',
-          onClick: () => { location.replace('/dashboard%ENG'); },
+          onClick: () => { location.replace('/dashboard_ENG'); },
         }),
       );
       profileContainer.appendChild(
@@ -197,21 +197,21 @@ class ProfileComp extends Component {
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'English',
-          onClick: () => { location.replace('/settings%ENG'); },
+          onClick: () => { location.replace('/settings_ENG'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'French',
-          onClick: () => { location.replace('/settings%FR'); },
+          onClick: () => { location.replace('/settings_FR'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Dutch',
-          onClick: () => { location.replace('/settings%DU'); },
+          onClick: () => { location.replace('/settings_DU'); },
         }),
       );
     });

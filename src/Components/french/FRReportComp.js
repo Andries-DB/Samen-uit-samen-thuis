@@ -11,7 +11,7 @@ class FRReportComp extends Component {
   constructor() {
     super({
       name: 'Rapport',
-      routerPath: '/report%FR',
+      routerPath: '/report_FR',
       model: {
         card: '',
       },
@@ -74,7 +74,7 @@ class FRReportComp extends Component {
       Elements.createButton({
         id: 'button--primary',
         textContent: 'RETOURNER',
-        onClick: () => { location.replace('/dashboard%FR'); },
+        onClick: () => { location.replace('/dashboard_FR'); },
       }),
     );
     reportContainer.appendChild(

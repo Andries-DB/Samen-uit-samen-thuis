@@ -13,7 +13,7 @@ class FREventComp extends Component {
   constructor() {
     super({
       name: 'Créer un nouvel événement',
-      routerPath: '/makenewevent%FR',
+      routerPath: '/makenewevent_FR',
       model: {
       },
     });
@@ -216,7 +216,7 @@ class FREventComp extends Component {
       Elements.createButton({
         id: 'button--primary__cancel',
         textContent: 'RETOURNER',
-        onClick: () => { location.replace('/dashboard%FR'); },
+        onClick: () => { location.replace('/dashboard_FR'); },
       }),
     );
     return eventContainer;

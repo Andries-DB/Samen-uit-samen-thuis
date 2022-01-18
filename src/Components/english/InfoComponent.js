@@ -13,7 +13,7 @@ class InfoComp extends Component {
   constructor() {
     super({
       name: 'Account Information',
-      routerPath: '/accountinformation%ENG',
+      routerPath: '/accountinformation_ENG',
       model: {
       },
     });
@@ -46,7 +46,7 @@ class InfoComp extends Component {
       userName,
       phoneNumb,
     });
-    location.replace('/dashboard%ENG');
+    location.replace('/dashboard_ENG');
   }
 
   render() {

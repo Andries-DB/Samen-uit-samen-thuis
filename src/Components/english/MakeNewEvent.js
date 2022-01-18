@@ -13,7 +13,7 @@ class EventComp extends Component {
   constructor() {
     super({
       name: 'Make a new event',
-      routerPath: '/makenewevent%ENG',
+      routerPath: '/makenewevent_ENG',
       model: {
       },
     });
@@ -216,7 +216,7 @@ class EventComp extends Component {
       Elements.createButton({
         id: 'button--primary__cancel',
         textContent: 'CANCEL',
-        onClick: () => { location.replace('/dashboard%ENG'); },
+        onClick: () => { location.replace('/dashboard_ENG'); },
       }),
     );
     return eventContainer;

@@ -13,7 +13,7 @@ class DUInfoComp extends Component {
   constructor() {
     super({
       name: 'Account Informatie',
-      routerPath: '/accountinformation%DU',
+      routerPath: '/accountinformation_DU',
       model: {
       },
     });
@@ -46,7 +46,7 @@ class DUInfoComp extends Component {
       userName,
       phoneNumb,
     });
-    location.replace('/dashboard%DU');
+    location.replace('/dashboard_DU');
   }
 
   render() {

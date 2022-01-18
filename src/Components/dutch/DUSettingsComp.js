@@ -13,7 +13,7 @@ class DUProfileComp extends Component {
   constructor() {
     super({
       name: 'Instellingen',
-      routerPath: '/settings%DU',
+      routerPath: '/settings_DU',
       model: {
       },
     });
@@ -178,7 +178,7 @@ class DUProfileComp extends Component {
         Elements.createButton({
           id: 'button--primary__cancel',
           textContent: 'GA TERUG',
-          onClick: () => { location.replace('/dashboard%DU'); },
+          onClick: () => { location.replace('/dashboard_DU'); },
         }),
       );
       profileContainer.appendChild(
@@ -197,21 +197,21 @@ class DUProfileComp extends Component {
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Engels',
-          onClick: () => { location.replace('/settings%ENG'); },
+          onClick: () => { location.replace('/settings_ENG'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Frans',
-          onClick: () => { location.replace('/settings%FR'); },
+          onClick: () => { location.replace('/settings_FR'); },
         }),
       );
       profileContainer.appendChild(
         Elements.createButton({
           id: 'button--secondary',
           textContent: 'Nederlands',
-          onClick: () => { location.replace('/settings%NL'); },
+          onClick: () => { location.replace('/settings_NL'); },
         }),
       );
     });

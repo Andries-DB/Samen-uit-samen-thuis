@@ -11,7 +11,7 @@ class DUReportComp extends Component {
   constructor() {
     super({
       name: 'Aangeven',
-      routerPath: '/report%DU',
+      routerPath: '/report_DU',
       model: {
         card: '',
       },
@@ -74,7 +74,7 @@ class DUReportComp extends Component {
       Elements.createButton({
         id: 'button--primary',
         textContent: 'GA TERUG',
-        onClick: () => { location.replace('/dashboard%DU'); },
+        onClick: () => { location.replace('/dashboard_DU'); },
       }),
     );
     reportContainer.appendChild(

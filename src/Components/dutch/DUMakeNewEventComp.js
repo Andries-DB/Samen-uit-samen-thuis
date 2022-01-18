@@ -13,7 +13,7 @@ class DUEventComp extends Component {
   constructor() {
     super({
       name: 'Maak een nieuw evenement',
-      routerPath: '/makenewevent%DU',
+      routerPath: '/makenewevent_DU',
       model: {
       },
     });
@@ -216,7 +216,7 @@ class DUEventComp extends Component {
       Elements.createButton({
         id: 'button--primary__cancel',
         textContent: 'GA TERUG',
-        onClick: () => { location.replace('/dashboard%DU'); },
+        onClick: () => { location.replace('/dashboard_DU'); },
       }),
     );
     return eventContainer;
