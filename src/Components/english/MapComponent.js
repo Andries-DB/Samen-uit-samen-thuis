@@ -62,7 +62,7 @@ class MapComp extends Component {
       Elements.createLink({
         id: 'header--home',
         textContent: '<-- GO BACK',
-        href: '/dashboard_ENG',
+        href: '/dashboard',
       }),
     );
     // append header to div
