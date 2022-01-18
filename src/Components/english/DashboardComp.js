@@ -14,7 +14,7 @@ class DashboardComp extends Component {
   constructor() {
     super({
       name: 'Dashboard',
-      routerPath: '/dashboard%ENG',
+      routerPath: '/dashboard_ENG',
       model: {
         linkPhoto: 'https://media.istockphoto.com/photos/large-group-of-people-at-a-concert-party-picture-id1311329449?b=1&k=20&m=1311329449&s=170667a&w=0&h=oiLJ0aGzcxEhM_5nczxFW9ng2VvELcTlXZbxOeSJhgA=',
       },
