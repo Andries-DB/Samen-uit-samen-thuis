@@ -47,10 +47,10 @@ class FREventComp extends Component {
     const email = localStorage.getItem('emaiLoggedInUser');
 
     // Creating reference of the photos
-    const reference = ref(storage, photo);
+    /* const reference = ref(storage, photo); */
 
     // Uploading the reference to the firebase cloud storage
-    uploadBytes(reference);
+    /* uploadBytes(reference); */
 
     // putting variables into the events database with ID = title of the event
     await setDoc(doc(db, 'events', title), {
