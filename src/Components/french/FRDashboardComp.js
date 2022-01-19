@@ -105,7 +105,7 @@ class FRDashboardComp extends Component {
       Elements.createLink({
         id: 'header__map',
         textContent: 'CARTE',
-        href: '/map',
+        href: '/map_FR',
       }),
     );
 

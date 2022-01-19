@@ -48,23 +48,18 @@ class LoginComp extends Component {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = provider.credentialFromResult(result);
-        const token = credential.accessToken;
+        const credential = GoogleAuthProvider.credentialFromResult(result);
         // The signed-in user info.
         const { user } = result;
+        localStorage.setItem('emaiLoggedInUser', user.email);
         location.replace('/dashboard');
-        // ...
       }).catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
-        const { email } = error;
 
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         alert(`An error has occurred, the error is ${errorMessage}!`);
-        // ...
       });
   }
 

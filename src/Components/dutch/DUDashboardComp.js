@@ -102,7 +102,7 @@ class DUDashboardComp extends Component {
       Elements.createLink({
         id: 'header--map',
         textContent: 'MAP',
-        href: '/map',
+        href: '/map_DU',
       }),
     );
 

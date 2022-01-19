@@ -7,12 +7,12 @@ import { Loader } from '@googlemaps/js-api-loader';
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 
-class MapComp extends Component {
+class DUMapComp extends Component {
   constructor() {
     super({
 
-      name: 'MAP',
-      routerPath: '/map',
+      name: 'KAART',
+      routerPath: '/map_DU',
       model: {
       },
     });
@@ -67,7 +67,7 @@ class MapComp extends Component {
         }),
       );
     };
-    const error = (e) => alert(`We couldn't get your location! There was an unexpected error which is ${e}`);
+    const error = (e) => alert('We konden je locatie niet verkrijgen, staat hij wel ingeschakeld?');
 
     // Get Geolocation
     navigator.geolocation.watchPosition(succes, error);
@@ -76,8 +76,8 @@ class MapComp extends Component {
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--home',
-        textContent: '<-- GO BACK',
-        href: '/dashboard',
+        textContent: '<-- GA TERUG',
+        href: '/dashboard_DU',
       }),
     );
     // append header to div
@@ -96,19 +96,19 @@ class MapComp extends Component {
     MapContainer.appendChild(
       Elements.createButton({
         id: 'button--primary panic',
-        textContent: 'PANIC',
+        textContent: 'HELP',
         onClick: () => { navigator.geolocation.watchPosition(panic, error); },
       }),
     );
     MapContainer.appendChild(
       Elements.createButton({
         id: 'button--primary',
-        textContent: 'REPORT',
-        onClick: () => { location.replace('/report_ENG'); },
+        textContent: 'RAPPORTEER',
+        onClick: () => { location.replace('/report_DU'); },
       }),
     );
     return MapContainer;
   }
 }
 
-export default MapComp;
+export default DUMapComp;

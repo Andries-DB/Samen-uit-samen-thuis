@@ -4,10 +4,10 @@ import App from './app';
 import {
   LoginComp, RegisterComp, DashboardComp,
   InfoComp, ProfileComp, EventComp, MapComp, ReportComp,
-  InfoEventComp, FRDashboardComp, FRInfoComp, FRProfileComp,
+  InfoEventComp, FRDashboardComp, FRMapComponent, FRInfoComp, FRProfileComp,
   FREventComp, FRReportComp, FRInfoEventComp, DUDashboardComp,
   DUInfoComp, DUProfileComp, DUEventComp, DUReportComp,
-  DUInfoEventComp,
+  DUInfoEventComp, DUMapComp,
 } from './Components/index';
 
 const initApp = () => {
@@ -30,6 +30,7 @@ const initApp = () => {
   app.addComponent(new FREventComp());
   app.addComponent(new FRReportComp());
   app.addComponent(new FRInfoEventComp());
+  app.addComponent(new FRMapComponent());
 
   app.addComponent(new DUDashboardComp());
   app.addComponent(new DUInfoComp());
@@ -37,10 +38,11 @@ const initApp = () => {
   app.addComponent(new DUEventComp());
   app.addComponent(new DUReportComp());
   app.addComponent(new DUInfoEventComp());
+  app.addComponent(new DUMapComp());
 
-  /* if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
-  } */
+  }
 };
 
 window.addEventListener('load', initApp);

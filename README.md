@@ -14,13 +14,17 @@ Aggression of any kind has no place in society. That we can feel safe should be 
 5) Netflify
 6) Navigo
 7) Regenerator Runtime
+8) Service worker
+9) API's
+    9.1) SendGrid API
+    9.2) Google Maps API
 
 ## Feature Overview
 ### ADOBE XD files 
-Coming soon
+Before I started with the SPA, I've made an Adobe XD FIle. It is a visual way to design how the app needs to look. You don't program anything, you just design the look of the page. It's like making the User Experience
 
 ### UML 
-Before I started with the SPA, I've made a UML structure. It is a developmental modeling language that is intended to provide a standard way to visualize the design of a system.
+Before I started with the SPA, I've made an UML structure. It is a developmental modeling language that is intended to provide a standard way to visualize the design of a system.
 
 ### Design System with SASS
 A design system is a complete set of standards intended to manage design at scale using reusable components and patterns.
@@ -107,7 +111,7 @@ If you have changed your information, there is a button 'SAVE'. In the onClick()
 If you want to delete your account, there is a button 'DELETE'. In the onClick() event of the button, I've put the deleteDocument() function. It deletes the account and redirects you to the login page. The data stored in firestore will be deleted because the ID of the user is the email. There is a item in the localstorage that gets the currently logged in user so I can get the email adress.
 
 ## My own contribution
-I've made 3 versions. The dutch, english and french version. Its all linked with each other. When you are on the settings page, you can choose for a specific language. However for the login, register & map page, I only have it in English. Login & register are coming soon but the Map page wouldn't work. Still figuring out how that comes
+I've made 3 versions. The dutch, english and french version. Its all linked with each other. When you are on the settings page, you can choose for a specific language. However for the login, register & map page, I only have it in English.
 
 ## Deployment
 I've deployed my website with Render. It is mostly the same as Netlify, but you don't need to pay for it which is easy. Everytime I push something to me repository on github, it will automatically change.

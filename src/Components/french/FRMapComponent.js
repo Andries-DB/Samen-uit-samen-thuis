@@ -7,12 +7,12 @@ import { Loader } from '@googlemaps/js-api-loader';
 import Component from '../../lib/Component';
 import Elements from '../../lib/Elements';
 
-class MapComp extends Component {
+class FRMapComp extends Component {
   constructor() {
     super({
 
-      name: 'MAP',
-      routerPath: '/map',
+      name: 'DOSSIER',
+      routerPath: '/map_FR',
       model: {
       },
     });
@@ -67,7 +67,7 @@ class MapComp extends Component {
         }),
       );
     };
-    const error = (e) => alert(`We couldn't get your location! There was an unexpected error which is ${e}`);
+    const error = (e) => alert('Nous n\'avons pas pu obtenir votre position, est-elle activée?');
 
     // Get Geolocation
     navigator.geolocation.watchPosition(succes, error);
@@ -76,8 +76,8 @@ class MapComp extends Component {
     headerContainer.appendChild(
       Elements.createLink({
         id: 'header--home',
-        textContent: '<-- GO BACK',
-        href: '/dashboard',
+        textContent: '<-- RETOURNER',
+        href: '/dashboard_FR',
       }),
     );
     // append header to div
@@ -96,19 +96,19 @@ class MapComp extends Component {
     MapContainer.appendChild(
       Elements.createButton({
         id: 'button--primary panic',
-        textContent: 'PANIC',
+        textContent: 'PANIQUE',
         onClick: () => { navigator.geolocation.watchPosition(panic, error); },
       }),
     );
     MapContainer.appendChild(
       Elements.createButton({
         id: 'button--primary',
-        textContent: 'REPORT',
-        onClick: () => { location.replace('/report_ENG'); },
+        textContent: 'RAPPORT',
+        onClick: () => { location.replace('/report_FR'); },
       }),
     );
     return MapContainer;
   }
 }
 
-export default MapComp;
+export default FRMapComp;
