@@ -53,7 +53,7 @@ class DashboardComp extends Component {
             // Creating the reference to the firebase storage to get the photo
             const reference = ref(storage, doc.get('photo'));
 
-            // ... This will be made, if the email isn't the same ...
+            // ... This will be made, if the email is the same ...
             yourEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',

@@ -54,7 +54,7 @@ class FRDashboardComp extends Component {
             // Creating the reference to the storage from Firebase
             const reference = ref(storage, doc.get('photo'));
 
-            // ... This will be made, if the email isn't the same ...
+            // ... This will be made, if the email is the same ...
             yourEventContainer.appendChild(
               Elements.createcardYour({
                 id: 'card',
@@ -82,13 +82,15 @@ class FRDashboardComp extends Component {
                 title: doc.get('title'),
                 img: linkPhoto,
                 imgid: 'card__img--img',
-                madeBy: `Fabriqué par ${doc.get('email')}`,
+                madeBy: `Made by ${doc.get('email')}`,
                 date: doc.get('date'),
                 idLink: 'button--tertiary',
                 hrefLink: '/detailsEvent_FR',
                 link: 'details',
                 imgAlt: 'Foto',
-                onClick: () => { localStorage.setItem('eventName', doc.get('title')); },
+                onClick: () => {
+                  localStorage.setItem('eventName', doc.get('title'));
+                },
               }),
             );
           }
@@ -145,7 +147,7 @@ class FRDashboardComp extends Component {
       Elements.createHeader({
         id: 'dashboard--Events__yourEvent',
         textContent: 'Votre événements',
-        size: 5,
+        size: 3,
       }),
     );
 
@@ -157,7 +159,7 @@ class FRDashboardComp extends Component {
       Elements.createHeader({
         id: 'dashboard--Events__otherEvents',
         textContent: 'Autre événements',
-        size: 5,
+        size: 3,
       }),
     );
     dashboardContainer.appendChild(otherEventContainer);
