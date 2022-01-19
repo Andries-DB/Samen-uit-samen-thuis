@@ -103,7 +103,7 @@ class FRDashboardComp extends Component {
     // Creating the look of the page
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--map',
+        id: 'header__map',
         textContent: 'CARTE',
         href: '/map',
       }),
@@ -111,21 +111,21 @@ class FRDashboardComp extends Component {
 
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--profile',
+        id: 'header__profile',
         textContent: 'RAPPORT',
         href: '/report_FR',
       }),
     );
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--profile',
+        id: 'header__settings',
         textContent: 'PARAMÈTRES',
         href: '/settings_FR',
       }),
     );
     headerContainer.appendChild(
       Elements.createButton({
-        id: 'button--primary signOut',
+        id: 'button--primary signOut header__logout',
         textContent: 'SE DÈCONNECTER',
         onClick: () => { this.signOut(); },
       }),

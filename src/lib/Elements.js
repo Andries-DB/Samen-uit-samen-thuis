@@ -77,7 +77,7 @@ const Elements = {
     return list;
   },
   createcardYour({
-    id, idDivImg, idDivText, title, img, imgid, madeBy, date, idLink, hrefLink, link, onClick = null, imgAlt
+    id, idDivImg, idDivText, title, img, imgid, madeBy, date, idLink, hrefLink, link, onClick = null, imgAlt,
   }) {
     const div = document.createElement('div');
     const divImg = document.createElement('div');
@@ -103,7 +103,6 @@ const Elements = {
 
     divTexta.href = hrefLink;
     if (onClick) divTexta.addEventListener('click', () => { onClick(); });
-
 
     divText.appendChild(divTextTitle);
     divText.appendChild(divTextAuthor);

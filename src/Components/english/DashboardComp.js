@@ -100,7 +100,7 @@ class DashboardComp extends Component {
     // Creating the look of the page
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--map',
+        id: 'header__map',
         textContent: 'MAP',
         href: '/map',
       }),
@@ -108,21 +108,21 @@ class DashboardComp extends Component {
 
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--profile',
+        id: 'header__profile',
         textContent: 'REPORT',
         href: '/report_ENG',
       }),
     );
     headerContainer.appendChild(
       Elements.createLink({
-        id: 'header--profile',
+        id: 'header__settings',
         textContent: 'SETTINGS',
         href: '/settings_ENG',
       }),
     );
     headerContainer.appendChild(
       Elements.createButton({
-        id: 'button--primary signOut',
+        id: 'button--primary signOut header__logout',
         textContent: 'LOG OUT',
         onClick: () => { this.signOut(); },
       }),

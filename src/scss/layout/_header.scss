@@ -12,13 +12,15 @@ header {
   @include mix.marginTRBL(0,0,0,0);
   @include mix.paddingTRBL(0,0,0,0);
 
-
   a {
-    @include mix.marginTRBL(20,0,0,40);
-    text-decoration: underline;
+    @include mix.marginTRBL(20,0,0,10);
   }
   button {
-    @include mix.marginTRBL(10,40,0,40);
+    @include mix.marginTRBL(10,40,0,10);
+    @include mix.paddingTRBL(10,10,10,10);
     width: 30%;
   }
+}
+.header__map{
+
 }
