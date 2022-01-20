@@ -93,7 +93,7 @@ class DashboardComp extends Component {
           }
         });
       } catch {
-        console.log('Error reading document');
+        // This will happen if you fail to upload a event
       }
     };
 

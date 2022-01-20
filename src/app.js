@@ -2,8 +2,8 @@
  * The App Wrapper
  */
 
-import Router from './Router.js';
-import Component from './lib/Component.js';
+import Router from './Router';
+import Component from './lib/Component';
 
 class App {
   constructor(parent) {

@@ -96,7 +96,7 @@ class FRDashboardComp extends Component {
           }
         });
       } catch {
-        console.log('Error reading document');
+        //
       }
     };
 

@@ -37,7 +37,7 @@ class FRReportComp extends Component {
       };
       (async () => {
         try {
-          await sgMail.send(msg);
+          await console.log(msg);
         } catch (error) {
           console.error(error);
           if (error.response) {

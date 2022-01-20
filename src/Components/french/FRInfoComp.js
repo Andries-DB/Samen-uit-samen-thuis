@@ -28,7 +28,7 @@ class FRInfoComp extends Component {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(`An error has occurred, the error is ${errorMessage}!`);
+        alert(`Une erreur s'est produite, l'erreur est  ${errorMessage}!`);
       });
   }
 

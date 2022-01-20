@@ -31,7 +31,7 @@ class DUDashboardComp extends Component {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(`An error has occurred, the error is ${errorMessage}!`);
+        alert(`Er is een fout opgetreden, de fout is ${errorMessage}!`);
       });
   }
 
@@ -93,7 +93,7 @@ class DUDashboardComp extends Component {
           }
         });
       } catch {
-        console.log('Error reading document');
+        // This will happen if you fail to upload a event
       }
     };
 

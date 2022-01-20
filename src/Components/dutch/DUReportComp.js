@@ -37,12 +37,9 @@ class DUReportComp extends Component {
       };
       (async () => {
         try {
-          await sgMail.send(msg);
+          await console.log(msg);
         } catch (error) {
-          console.error(error);
-          if (error.response) {
-            console.error(error.response.body);
-          }
+          // This will happen if the code fails
         }
       })();
     }
